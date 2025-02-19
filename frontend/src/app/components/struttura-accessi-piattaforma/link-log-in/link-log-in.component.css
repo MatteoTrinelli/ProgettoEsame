@@ -8,14 +8,23 @@ body {
 }
 
 .login-header {
+    text-align: center;
     background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+   /* border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);*/
+    border: 2px black;
+    border: solid;
 }
 
 .login-header h2 {
     color: #ff6600;
     font-weight: bold;
+}
+
+div{
+    width: 30%;  
+    position:absolute; 
+    height: 50%;   
+
 }
