@@ -24,6 +24,7 @@
             justify-content: center;
             border-radius: 10px;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            flex-direction: row;
         }
         .left-section {
             display: flex;
@@ -44,48 +45,101 @@
             align-items: center;
             justify-content: center;
         }
+
         .login-div {
             background-color: white;
             color: red;
+            cursor: pointer;
         }
-        .sign-div {
+        .login-div:hover {
             background-color: gainsboro;
             color: red;
+            cursor: pointer;
         }
+    
+        .sign-div {
+            background-color: white(196, 181, 181);
+            color: red;
+            cursor: pointer;
+
+        }
+        .sign-div:hover {
+            background-color: gainsboro;
+            color: red;
+            cursor: pointer;
+        }
+    
         .container-form {
             background-color: rgb(170, 169, 169);
             width: 50%;
             padding: 15px;
-            border-radius: 10px;
+            /*border-radius: 10px;*/
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100%;
         }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 90%;
+                height: auto;
+                padding: 20px;
+            }
+            .left-section, .container-form {
+                width: 100%;
+                height: auto;
+            }
+            .login-div, .sign-div {
+                padding: 15px;
+            }
+        }
+        #submitButton{
+            width: 100%;
+            border-radius: 0;
+            font-size: 125%;
+        }
+
+        label {
+            font-size: 150%;
+        }
+
+        /* You can add global styles to this file, and also import other style files */
+        @font-face {
+            font-family: 'Sternbach';
+            src: url('Font/Sternbach.otf') format('opentype'); /* Percorso corretto */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        * {
+            font-family:  Sternbach, sans-serif;
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
         <div class="left-section">
-            <div class="login-div">Login</div>
-            <div class="sign-div">Sign</div>
+            <div class="login-div"><h1>Login</h1></div>
+            <div class="sign-div"><h1>Sign</h1></div>
         </div>
         <div class="container-form">
             <form>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <div id="logo">
+
                 </div>
-                <div class="mb-3">
+                <div class="mb-4">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Insert your username">
+                </div>
+                <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Insert your password">
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+ 
+                <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
