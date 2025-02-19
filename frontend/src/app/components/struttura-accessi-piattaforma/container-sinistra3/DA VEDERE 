@@ -56,7 +56,7 @@
             color: red;
             cursor: pointer;
         }
-    
+
         .sign-div {
             background-color: white(196, 181, 181);
             color: red;
@@ -68,7 +68,7 @@
             color: red;
             cursor: pointer;
         }
-    
+
         .container-form {
             background-color: rgb(170, 169, 169);
             width: 50%;
@@ -122,8 +122,8 @@
 <body>
     <div class="container">
         <div class="left-section">
-            <div class="login-div"><h1>Login</h1></div>
-            <div class="sign-div"><h1>Sign</h1></div>
+            <div class="login-div"><h1>LogIn</h1></div>
+            <div class="sign-div"><h1>SigIn</h1></div>
         </div>
         <div class="container-form">
             <form>
@@ -138,7 +138,7 @@
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Insert your password">
                 </div>
- 
+
                 <button id="submitButton" type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
