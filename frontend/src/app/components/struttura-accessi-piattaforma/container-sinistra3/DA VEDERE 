@@ -123,7 +123,7 @@
     <div class="container">
         <div class="left-section">
             <div class="login-div"><h1>LogIn</h1></div>
-            <div class="sign-div"><h1>SigIn</h1></div>
+            <div class="sign-div"><h1>SignIn</h1></div>
         </div>
         <div class="container-form">
             <form>
