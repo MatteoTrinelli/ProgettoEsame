@@ -1,7 +1,7 @@
 
 /*Sfondo con le strisce*/
 .wrapper {
-  background: linear-gradient(135deg, #ff6600 30%, #333 30%, #333 70%, #0077ff 70%);
+  background: linear-gradient(135deg, #000000 30%, #f01212  30%, #f01212  70%, #000000 70%);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -43,9 +43,3 @@
   100% { transform: translateY(0) scale(1); }
 }
 /*----------------*/
-
-
-
-
-
-
