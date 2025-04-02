@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
-import { ContainerSinistra3Component } from '../../components/struttura-accessi-piattaforma/container-sinistra3/container-sinistra3.component';
-import { ContainerDestra6Component } from '../../components/struttura-accessi-piattaforma/container-destra6/container-destra6.component';
+import { LoginFormComponent } from '../../components/login-form/login-form.component';
+
 @Component({
   selector: 'app-login-page',
-  imports: [ContainerSinistra3Component,ContainerDestra6Component],
+  standalone: true,  // Indica che questo è un componente standalone
+  imports: [LoginFormComponent],  // Importa FormsModule per il two-way data binding
   templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.css'
+  styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
+  email: string = '';
+  password: string = '';
 
+  onSubmit() {
+    console.log('Email:', this.email);
+    console.log('Password:', this.password);
+    // Logica per il login, per esempio chiamata API
+  }
 }
