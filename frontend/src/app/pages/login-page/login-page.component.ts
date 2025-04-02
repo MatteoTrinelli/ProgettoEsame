@@ -9,11 +9,11 @@ import { LoginFormComponent } from '../../components/login-form/login-form.compo
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
- /* email: string = '';
+ email: string = '';
   password: string = '';
 
   onSubmit() {
     console.log('Email:', this.email);
     console.log('Password:', this.password);
-  }*/
+  }
 }
