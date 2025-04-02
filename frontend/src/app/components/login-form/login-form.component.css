@@ -21,9 +21,9 @@ h2 {
 }
 
 button {
-  background: #ff6600;
+  background: #f02121;
   border: none;
-  color: white;
+  color: #ffffff;
   font-size: 1.1rem;
   padding: 10px;
   border-radius: 5px;
@@ -32,17 +32,17 @@ button {
 }
 
 button:hover {
-  background: #cc5500;
+  background: #f02121;
   transform: scale(1.05);
 }
 
 a {
-  color: #ff6600;
+  color: #f02121;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: #cc5500;
+  color: #f02121;
 }
