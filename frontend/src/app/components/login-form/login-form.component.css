@@ -11,13 +11,23 @@
   z-index: 2;
 }
 
+.white-input{
+  background-color: white !important;
+  color: black !important;
+}
+
+.testo-scuro{
+  color: #333;
+}
+
 .login-container:hover {
   transform: scale(1.05);
 }
 
+
 h2 {
   font-size: 1.8rem;
-  color: #333;
+  color: #222;
 }
 
 button {
