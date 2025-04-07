@@ -6,17 +6,31 @@ interface LoginResponse {
   token: string;
 }
 
+
+
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+
+export class signuprequest{
+ constructor(
+  nome:string,
+  cognome:string,
+  dob:string,
+  mail:string,
+  password:string,
+  
+
+ ){}
+}
+export class userService {
   token: string | null = null;
 
   constructor(private http: HttpClient) {}
 
-  async login(username: string, password: string): Promise<LoginResponse> {
+  async login(mail: string, password: string): Promise<LoginResponse> {
     const hashedPassword = CryptoJS.SHA256(password.toString());
-    const requestBody = { username, password: hashedPassword };
+    const requestBody = { mail, password: hashedPassword };
 
     try {
       const response = await firstValueFrom(
@@ -30,6 +44,11 @@ export class AuthService {
       console.error('Login failed', error);
       throw error;
     }
+  }
+
+  async signup(username:string, password:string):Promise<SignupResponse>{
+    const hashedPassword=CryptoJS.SHA256(password.toString());
+    const requestBody={}
   }
 
 
