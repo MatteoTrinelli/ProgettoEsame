@@ -8,5 +8,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './login-form.component.css'
 })
 export class LoginFormComponent {
+  currentYear: number = new Date().getFullYear();
+
+  constructor() { }
+
 
 }
