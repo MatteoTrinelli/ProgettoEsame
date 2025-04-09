@@ -1,0 +1,55 @@
+
+/*Sfondo con le strisce*/
+.wrapper {
+  background: linear-gradient(135deg, #000000 30%, #f01212  30%, #f01212  70%, #000000 70%);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  position: relative;
+}
+/*--------*/
+
+/*animazioni dello sfondo*/
+.background-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.circle
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: float 10s infinite linear;
+}
+
+.circle:nth-child(1) { top: 10%; left: 15%; animation-duration: 12s; }
+.circle:nth-child(2) { top: 50%; left: 80%; animation-duration: 10s; }
+.circle:nth-child(3) { top: 70%; left: 30%; animation-duration: 8s; }
+.circle:nth-child(4) { top: 20%; left: 60%; animation-duration: 15s; }
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-20px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
+}
+<<<<<<< HEAD
+/*----------------*/
+
+
+
+
+
+
+=======
+/*----------------*/
+>>>>>>> 51203b700113ad2b4fd6f5418f8f8bee93729813
