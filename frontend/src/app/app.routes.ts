@@ -12,4 +12,5 @@ export const routes: Routes = [
     path: 'scelta',
     component: SceltaPageComponent
   },
+
 ];
