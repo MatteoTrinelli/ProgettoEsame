@@ -2,7 +2,8 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import { db } from './database'; // Importiamo la connessione al DB
+import { db } from './database'; 
+
 
 const loginRouter = express.Router();
 
