@@ -7,27 +7,27 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  loginForm!: FormGroup;
+ 
   currentYear: number = new Date().getFullYear();
 
   emailError: string | null = null;
   passwordError: string | null = null;
 
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
 
+  loginForm = new FormGroup({
+    username: new FormControl(''),
+    password: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  });
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
-      remember: [false]
-    });
+ 
   }
 
   onSubmit(): void {
     this.resetErrors();
 
     if (this.loginForm.valid) {
-      console.log('✅ Login valido:', this.loginForm.value);
+      console.log('Login valido:', this.loginForm.value);
       // Esegui login o invia al servizio
     } else {
       const emailControl = this.loginForm.get('email');
