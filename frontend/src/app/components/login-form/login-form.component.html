@@ -10,7 +10,7 @@
     <div class="right-section">
       <div class="brand">ClinchNet</div>
       <h2>Accedi</h2>
-      <form>
+      <form [formGroup]='loginForm' (ngSubmit)="onSubmit()">
         <label for="email">Email o nome utente</label>
         <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required />
 

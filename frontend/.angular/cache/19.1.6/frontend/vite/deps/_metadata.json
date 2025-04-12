@@ -1,35 +1,68 @@
 {
+<<<<<<< HEAD
+  "hash": "0e271cb2",
+  "configHash": "379150b5",
+  "lockfileHash": "07a7d9cb",
+  "browserHash": "106ea64a",
+=======
   "hash": "0ebd9ce3",
   "configHash": "379150b5",
   "lockfileHash": "f4659073",
   "browserHash": "488a6377",
+>>>>>>> fe05675dc11d208e57284c1811cc64f07b3ccd16
   "optimized": {
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
+<<<<<<< HEAD
+      "fileHash": "f2d7d8df",
+=======
       "fileHash": "f136eba9",
+>>>>>>> fe05675dc11d208e57284c1811cc64f07b3ccd16
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
+<<<<<<< HEAD
+      "fileHash": "d32495ce",
+=======
       "fileHash": "0d913801",
+>>>>>>> fe05675dc11d208e57284c1811cc64f07b3ccd16
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
+<<<<<<< HEAD
+      "fileHash": "e9dda6ca",
+=======
       "fileHash": "4a765ee6",
+>>>>>>> fe05675dc11d208e57284c1811cc64f07b3ccd16
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
+<<<<<<< HEAD
+      "fileHash": "dc7163a1",
+=======
       "fileHash": "e5b04777",
+>>>>>>> fe05675dc11d208e57284c1811cc64f07b3ccd16
       "needsInterop": false
     }
   },
   "chunks": {
+<<<<<<< HEAD
+    "chunk-KOLCJJKF": {
+      "file": "chunk-KOLCJJKF.js"
+    },
+    "chunk-RCDWYRR2": {
+      "file": "chunk-RCDWYRR2.js"
+    },
+    "chunk-3XPEKGWC": {
+      "file": "chunk-3XPEKGWC.js"
+=======
     "chunk-3RH6YTCQ": {
       "file": "chunk-3RH6YTCQ.js"
     },
@@ -38,6 +71,7 @@
     },
     "chunk-QUW5EQHX": {
       "file": "chunk-QUW5EQHX.js"
+>>>>>>> fe05675dc11d208e57284c1811cc64f07b3ccd16
     }
   }
 }
