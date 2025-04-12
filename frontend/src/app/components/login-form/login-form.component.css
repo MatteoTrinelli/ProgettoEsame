@@ -81,7 +81,7 @@ body, html {
 .brand {
   font-size: 6rem; /* Font size molto grande */
   font-weight: normal; /* Font normale senza grassetto */
-  color: #ff6600;
+  color: #f02121;
   text-align: center;
   margin-top: 0vh; /* Spostato più in alto */
   margin-bottom: 2rem; /* Distanza dal titolo "Accedi" */
@@ -124,7 +124,7 @@ button {
   padding: 12px;
   border: none;
   border-radius: 25px;
-  background-color: #ff6600;
+  background-color: #f02121;
   color: white;
   font-size: 1rem;
   cursor: pointer;
@@ -132,7 +132,7 @@ button {
 }
 
 button:hover {
-  background-color: #cc5500;
+  background-color: #cc0000;
 }
 
 .signup-link {
