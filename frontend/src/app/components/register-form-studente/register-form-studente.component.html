@@ -1,58 +1,32 @@
-<div class="container register-container">
-  <h2>Registrati - Sport Club</h2>
-  <form id="register-form">
-      <div class="form-row">
-          <div class="input-half">
-              <label for="first-name">Nome</label>
-              <input type="text" id="first-name" name="first-name" placeholder="Inserisci il tuo nome" required>
-          </div>
-          <div class="input-half">
-              <label for="last-name">Cognome</label>
-              <input type="text" id="last-name" name="last-name" placeholder="Inserisci il tuo cognome" required>
-          </div>
+<div class="main-container">
+    <div class="left-section">
+      <div class="left-overlay"></div>
+      <div class="left-content">
+        <h1>Benvenuto!</h1>
+        <p>Accedi al tuo account per continuare con Sport Club.</p>
       </div>
-
-      <div class="form-row">
-          <div class="input-half">
-              <label for="dob">Data di Nascita</label>
-              <input type="date" id="dob" name="dob" required>
-          </div>
-          <div class="input-half">
-              <label for="city">Nazionalità</label>
-              <input type="text" id="nazionality" name="nazionality" placeholder="Inserisci la tua nazionalità" required>
-          </div>
-          <!--
-          A noi non interessa dove è nato, perchè non siamo quelli che creano gli eventi
-          DObbiamo avere solo le informazioni per un account generico
-           <div class="input-half">
-              <label for="city">Luogo di nascita</label>
-              <input type="text" id="pob" name="pob" placeholder="Inserisci il luogo di nascita" required>
-          </div>
-          -->
-
+    </div>
+    <div class="right-section">
+      <div class="brand">ClinchNet</div>
+      <h2>Accedi</h2>
+      <form>
+        <label for="email">Email o nome utente</label>
+        <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required>
+  
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Inserisci la tua password" required>
+  
+        <div class="form-options">
+          <label><input type="checkbox" /> Ricordami</label>
+          <a href="#">Password dimenticata?</a>
+        </div>
+  
+        <button type="submit" onclick="event.preventDefault()">Accedi</button>
+      </form>
+      <div class="signup-link">
+        Non hai un account? <a href="#">Registrati</a>
+        <p class="mt-3">&copy; 2025 - Tutti i diritti riservati</p>
       </div>
-
-      <label for="martial-art">Discipline Marziali</label>
-      <select id="martial-art" name="martial-art" required onchange="updateGrades()">
-          <option value="">Seleziona una disciplina</option>
-          <option value="karate">Karate</option>
-          <option value="judo">Judo</option>
-          <option value="taekwondo">Taekwondo</option>
-          <option value="bjj">Brazilian Jiu-Jitsu</option>
-          <option value="kungfu">Kung Fu</option>
-          <option value="muaythai">Muay Thai</option>
-          <option value="kickboxing">Kickboxing</option>
-      </select>
-
-      <label for="grade">Grado Imparato</label>
-      <select id="grade" name="grade" required>
-          <option value="">Seleziona il grado</option>
-      </select>
-
-      <label for="gym-name">Nome della Palestra</label>
-      <input type="text" id="gym-name" name="gym-name" placeholder="Inserisci il nome della palestra" required>
-
-      <button type="submit">Registrati</button>
-  </form>
-  <p>Hai già un account? <a href="#">Accedi</a></p>
-</div>
+    </div>
+  </div>
+  

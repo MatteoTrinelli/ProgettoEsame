@@ -2,7 +2,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors'; 
-import { loginRouter } from './login'; // Importiamo il router con gli endpoint di login
+import { loginRouter } from './user'; 
 
 dotenv.config();
 
@@ -20,8 +20,8 @@ app.use(cors({
 // Middleware per il parsing di JSON
 app.use(express.json());
 
-// Utilizza il router per gli endpoint di login
-app.use('/api', loginRouter); // Gli endpoint di login saranno sotto /api
+
+app.use('/auth', loginRouter); 
 
 // Test route
 app.get('/', (req, res) => {
