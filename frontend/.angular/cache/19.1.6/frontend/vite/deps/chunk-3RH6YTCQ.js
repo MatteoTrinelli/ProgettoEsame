@@ -8,7 +8,7 @@ import {
   isPlatformServer,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-RCDWYRR2.js";
+} from "./chunk-IIZVXXOD.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -88,9 +88,9 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-3XPEKGWC.js";
+} from "./chunk-QUW5EQHX.js";
 
-// ../../../node_modules/@angular/common/fesm2022/http.mjs
+// node_modules/@angular/common/fesm2022/http.mjs
 var HttpHandler = class {
 };
 var HttpBackend = class {
@@ -2389,7 +2389,7 @@ function appendMissingHeadersDetection(url, headers, headersToInclude) {
   });
 }
 
-// ../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
+// node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
 var GenericBrowserDomAdapter = class extends DomAdapter {
   supportsDOMEvents = true;
 };
@@ -4337,4 +4337,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-KOLCJJKF.js.map
+//# sourceMappingURL=chunk-3RH6YTCQ.js.map

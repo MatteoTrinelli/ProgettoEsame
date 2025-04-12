@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+  styleUrls: ['./login-form.component.scss'],
+  imports:[ReactiveFormsModule, RouterLink],
 })
 export class LoginFormComponent implements OnInit {
- 
+
   currentYear: number = new Date().getFullYear();
 
   emailError: string | null = null;
@@ -20,7 +22,7 @@ export class LoginFormComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
   ngOnInit(): void {
- 
+
   }
 
   onSubmit(): void {

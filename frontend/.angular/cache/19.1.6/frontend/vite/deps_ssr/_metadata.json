@@ -1,15 +1,8 @@
 {
-<<<<<<< HEAD
   "hash": "f70ce730",
   "configHash": "c62533be",
   "lockfileHash": "f4659073",
   "browserHash": "573bf9d9",
-=======
-  "hash": "99cc0952",
-  "configHash": "c62533be",
-  "lockfileHash": "07a7d9cb",
-  "browserHash": "1065635d",
->>>>>>> 980abd582f75815df646b7d0492ceef1574e4ac5
   "optimized": {},
   "chunks": {}
 }
