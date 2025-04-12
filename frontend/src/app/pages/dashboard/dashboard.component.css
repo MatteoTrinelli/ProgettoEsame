@@ -1,3 +1,17 @@
+:root {
+  --gradient: linear-gradient(to right, #ff416c, #ff4b2b);
+}
+
+#generalContainer {
+  background: #fafafa;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+}
 
 .sidebar {
   width: 80px;
@@ -18,4 +32,20 @@
   font-size: 1.4rem;
   color: #333;
   cursor: pointer;
+}
+
+.main {
+  flex: 1;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  margin: 0;
 }
