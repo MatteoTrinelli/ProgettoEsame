@@ -21,7 +21,7 @@ loginRouter.post('/login', (req: any, res: any) => {
   }
 
   // Verifica le credenziali nel database
-  db.query('SELECT * FROM users WHERE email = ?', [email], async (err, results: any[]) => {
+  db.query('SELECT * FROM utenti WHERE email = ?', [email], async (err, results: any[]) => {
     if (err) {
       console.error('Errore nel database:', err);
       return res.status(500).json({ message: 'Errore server' });

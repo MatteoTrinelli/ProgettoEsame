@@ -1,7 +1,7 @@
 import {
   DOCUMENT,
   isPlatformBrowser
-} from "./chunk-IYGVORD7.js";
+} from "./chunk-AIAJIZHS.js";
 import {
   ApplicationRef,
   Attribute,
@@ -31,6 +31,7 @@ import {
   Renderer2,
   RendererStyleFlags2,
   RuntimeError,
+  Subject,
   TemplateRef,
   Version,
   ViewContainerRef,
@@ -58,10 +59,7 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-WMCZ35HI.js";
-import {
-  Subject
-} from "./chunk-ZSY7TSMJ.js";
+} from "./chunk-SLK7KOXC.js";
 import {
   __async,
   __spreadProps,
@@ -4953,4 +4951,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-3QUDGVIR.js.map
+//# sourceMappingURL=chunk-IM4TAD7W.js.map
