@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-scelta-user',
@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './scelta-user.component.css'
 })
 export class SceltaUserComponent {
+  @Output() sceltaEvent = new EventEmitter<boolean>();
 
+  sceltaTipo() {
+    this.sceltaEvent.emit(true);
+  }
 }
