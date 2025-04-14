@@ -1,17 +1,12 @@
-import { ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/auth/user.service';
 
 @Component({
   selector: 'app-login-form',
-<<<<<<< HEAD
   imports: [ReactiveFormsModule,RouterLink],
-=======
-  imports: [ReactiveFormsModule, RouterLink],
->>>>>>> fe05675dc11d208e57284c1811cc64f07b3ccd16
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })
@@ -47,5 +42,5 @@ export class LoginFormComponent {
     } catch (err) {
       const error = err as Error;
     } 
-  }   
+  }  
 }

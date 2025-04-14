@@ -116,6 +116,7 @@ import {
   Renderer2,
   RendererFactory2,
   RendererStyleFlags2,
+  ResourceImpl,
   ResourceStatus,
   RuntimeError,
   SIGNAL,
@@ -230,9 +231,11 @@ import {
   isSignal,
   isStandalone,
   isSubscribable,
+  isViewDirty,
   linkedSignal,
   makeEnvironmentProviders,
   makeStateKey,
+  markForRefresh,
   mergeApplicationConfig,
   microtaskEffect,
   model,
@@ -298,7 +301,6 @@ import {
   ɵɵExternalStylesFeature,
   ɵɵHostDirectivesFeature,
   ɵɵInheritDefinitionFeature,
-  ɵɵInputTransformsFeature,
   ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
   ɵɵadvance,
@@ -493,11 +495,9 @@ import {
   ɵɵvalidateIframeAttribute,
   ɵɵviewQuery,
   ɵɵviewQuerySignal
-<<<<<<< HEAD
-} from "./chunk-3XPEKGWC.js";
-=======
-} from "./chunk-QUW5EQHX.js";
->>>>>>> fe05675dc11d208e57284c1811cc64f07b3ccd16
+} from "./chunk-WMCZ35HI.js";
+import "./chunk-ZSY7TSMJ.js";
+import "./chunk-EIB7IA3J.js";
 export {
   ANIMATION_MODULE_TYPE,
   APP_BOOTSTRAP_LISTENER,
@@ -692,6 +692,7 @@ export {
   ComponentFactory as ɵRender3ComponentFactory,
   ComponentRef as ɵRender3ComponentRef,
   NgModuleRef as ɵRender3NgModuleRef,
+  ResourceImpl as ɵResourceImpl,
   RuntimeError as ɵRuntimeError,
   SIGNAL as ɵSIGNAL,
   SSR_CONTENT_INTEGRITY_MARKER as ɵSSR_CONTENT_INTEGRITY_MARKER,
@@ -757,6 +758,8 @@ export {
   isNgModule as ɵisNgModule,
   isPromise as ɵisPromise,
   isSubscribable as ɵisSubscribable,
+  isViewDirty as ɵisViewDirty,
+  markForRefresh as ɵmarkForRefresh,
   microtaskEffect as ɵmicrotaskEffect,
   noSideEffects as ɵnoSideEffects,
   patchComponentDefWithScope as ɵpatchComponentDefWithScope,
@@ -799,7 +802,6 @@ export {
   FactoryTarget as ɵɵFactoryTarget,
   ɵɵHostDirectivesFeature,
   ɵɵInheritDefinitionFeature,
-  ɵɵInputTransformsFeature,
   ɵɵNgOnChangesFeature,
   ɵɵProvidersFeature,
   ɵɵadvance,

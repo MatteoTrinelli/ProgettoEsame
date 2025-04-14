@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
-import * as bcrypt from 'bcrypt'  // Importa bcryptjs
+import CryptoJS from 'crypto-js'; 
 
 interface LoginResponse {
   token: string;
@@ -20,11 +20,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  // Funzione di login
   async login(mail: string, password: string): Promise<LoginResponse> {
-    // Qui normalmente verifichi la password con quella memorizzata sul server
-    // Per esempio, invii la password in chiaro al server e il server la confronta con quella memorizzata.
-    
     const requestBody = { mail, password };
 
     try {
@@ -39,7 +35,6 @@ export class UserService {
     }
   }
 
-  // Funzione di registrazione
   async signup(
     mail: string,
     password: string,
@@ -51,12 +46,12 @@ export class UserService {
     codDisciplinaPrincipale: string,
     nazionalità: string
   ) {
-    // Usa bcryptjs per fare l'hashing della password
-    const hashedPassword = await bcrypt.hash(password, 10); // Il secondo parametro è il numero di "giri" (salt rounds)
+    // Calcola l'hash SHA256 della password
+    const hashedPassword = CryptoJS.SHA256(password).toString();
 
     const requestBody = {
       mail: mail,
-      password: hashedPassword,  // La password viene inviata già criptata
+      password: hashedPassword, // Invia la password hashata
       username: username,
       nome: nome,
       cognome: cognome,

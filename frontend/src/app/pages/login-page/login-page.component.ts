@@ -4,7 +4,7 @@ import { LoginFormComponent } from '../../components/login-form/login-form.compo
 @Component({
   selector: 'app-login-page',
   standalone: true,  // Indica che questo è un componente standalone
-  imports: [LoginFormComponent],  // Importa FormsModule per il two-way data binding
+  imports: [], 
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.css']
 })

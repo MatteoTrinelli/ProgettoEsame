@@ -4,13 +4,13 @@
       <div class="left-overlay"></div>
       <div class="left-content">
         <h1>Benvenuto!</h1>
-        <p>Accedi al tuo account per continuare o registrati</p>
+        <p>Accedi al tuo account per continuare accedi o registrati</p>
       </div>
     </div>
     <div class="right-section">
       <div class="brand">ClinchNet</div>
       <h2>Accedi</h2>
-      <form [formGroup]='loginForm' (ngSubmit)="onSubmit()">
+      <form [formGroup]='loginForm'>
         <label for="email">Email o nome utente</label>
         <input type="email" id="email" name="email" placeholder="Inserisci la tua email" required />
 
