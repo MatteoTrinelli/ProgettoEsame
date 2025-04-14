@@ -71,13 +71,13 @@
   .right-section h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
-    color: #333;
+    color: #000;
   }
   
   .brand {
     font-size: 6rem;
     font-weight: normal;
-    color: #ff6600;
+    color: #ff0000;
     text-align: center;
     margin-bottom: 2rem;
   }
@@ -89,7 +89,7 @@
   
   label {
     font-size: 0.9rem;
-    color: #555;
+    color: #000;
     margin-bottom: 0.3rem;
   }
   
@@ -98,7 +98,7 @@
     padding: 12px;
     margin-bottom: 1.2rem;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #333;
     font-size: 1rem;
   }
   
@@ -119,7 +119,7 @@
     padding: 12px;
     border: none;
     border-radius: 25px;
-    background-color: #ff6600;
+    background-color: #ff0000;
     color: white;
     font-size: 1rem;
     cursor: pointer;
@@ -127,7 +127,7 @@
   }
   
   button:hover {
-    background-color: #cc5500;
+    background-color: #D32F2F;
   }
   
   .signup-link {
@@ -138,7 +138,7 @@
   
   .signup-link a,
   .form-options a {
-    color: #0077ff;
+    color: #ff0000;
     text-decoration: none;
     font-weight: bold;
   }
