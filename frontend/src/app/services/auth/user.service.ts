@@ -3,36 +3,34 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import CryptoJS from 'crypto-js'; 
 
-interface LoginResponse {
-  token: string;
-}
 
-export interface SignupResponse {
-  success: boolean;
-  message: string;
-}
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  token: string | null = null;
+ apiUrl="http://localhost:3000";
 
   constructor(private http: HttpClient) {}
 
-  async login(mail: string, password: string): Promise<LoginResponse> {
-    const requestBody = { mail, password };
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/login`, { email, password });
+  }
 
-    try {
-      const response = await firstValueFrom(
-        this.http.post<LoginResponse>('http://localhost:3000/log-in', requestBody)
-      );
-      this.token = response.token;
-      return response;
-    } catch (error) {
-      console.error('Login failed', error);
-      throw error;
-    }
+  saveToken(token: string) {
+    localStorage.setItem('token', token);
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+  }
+
+  isLoggedIn(): boolean {
+    return !!this.getToken();
   }
 
   async signup(

@@ -13,33 +13,33 @@ import { UserService } from '../../services/auth/user.service';
 })
 export class LoginFormComponent {
   currentYear: number = new Date().getFullYear();
+  errorMsg:string='';
 
   constructor(
     private userService: UserService,
-    private router: Router,
+    private Router: Router,
   ) {}
 
   loginForm = new FormGroup({
-    username: new FormControl(''),
+    email: new FormControl('',[Validators.required,Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
 
 
-  async onSubmit(): Promise<void> {
-    if (!this.loginForm.valid) return;
-    try {
-      const loginOk = await this.userService.login(
-        this.loginForm.value.username!,
-        this.loginForm.value.password!,
-      );
-      if (loginOk) {
-        this.router.navigate(["dashboard"]);
-      } else {
-        alert("Incorrect Username or password");
-      }
-    } catch (err) {
-      const error = err as Error;
-      console.error(error.message);
+ 
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const { email, password }:string|undefined|null|any = this.loginForm.value;
+      this.userService.login(email, password).subscribe({
+        next: (res:any) => {
+          this.userService.saveToken(res.token);
+          console.log('Login riuscito!');
+          this.Router.navigate(["dashboard"]);
+        },
+        error: () => {
+          this.errorMsg = 'Credenziali non valide';
+        }
+      });
     }
   }
 }
