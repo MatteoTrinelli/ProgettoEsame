@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router'; // Importa RouterOutlet per la navigazione
 import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { SceltaPageComponent } from "./pages/scelta-page/scelta-page.component"; // Importa il componente di login
+import { SceltaPageComponent } from "./components/scelta-page/scelta-page.component"; // Importa il componente di login
 
 @Component({
   selector: 'app-root',

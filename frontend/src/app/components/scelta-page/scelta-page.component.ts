@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SceltaUserComponent } from './../../components/scelta-user/scelta-user.component';
+import { SceltaUserComponent } from '../scelta-user/scelta-user.component';
 
 @Component({
   selector: 'app-scelta-page',
