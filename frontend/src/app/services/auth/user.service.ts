@@ -9,14 +9,13 @@ import CryptoJS from 'crypto-js';
   providedIn: 'root',
 })
 export class UserService {
- apiUrl="https://upgraded-cod-g45x5g5wp66r3v4xx-3000.app.github.dev";
+ apiUrl="https://upgraded-cod-g45x5g5wp66r3v4xx-3000.app.github.dev/";
 
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
-    const hashedPassword=CryptoJS.SHA256(password)
-    console.log(hashedPassword)
-    return this.http.post<any>(`${this.apiUrl}/auth/login`, { email, password:hashedPassword });
+    const hashedPassword=CryptoJS.SHA256(password).toString();
+    return this.http.post<any>(`${this.apiUrl}auth/login`, { email, password:hashedPassword });
   }
 
   saveToken(token: string) {

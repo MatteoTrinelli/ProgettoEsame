@@ -11,13 +11,12 @@ const PORT = process.env.PORT || 3000;
 
 // Abilita CORS per tutte le origini
 app.use(cors({
-    origin: 'https://upgraded-cod-g45x5g5wp66r3v4xx-4200.app.github.dev',
-  credentials: true // if you're using cookies or auth headers
-  // origin: '*',
-  // methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-  // allowedHeaders: ['Content-Type', 'Authorization'],
-  // credentials: true // per il JWT
+  origin: 'https://upgraded-cod-g45x5g5wp66r3v4xx-4200.app.github.dev',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
 
 // Middleware per il parsing di JSON
 app.use(express.json());
