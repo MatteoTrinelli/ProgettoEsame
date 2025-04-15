@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 3000;
 
 // Abilita CORS per tutte le origini
 app.use(cors({
-  origin: 'https://upgraded-cod-g45x5g5wp66r3v4xx-4200.app.github.dev',
+  origin: 'https://obscure-train-5w9qx4g9g9gc49p7-4200.app.github.dev',
+  
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],

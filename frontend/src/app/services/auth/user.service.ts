@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import CryptoJS from 'crypto-js'; 
-
+import CryptoJS from 'crypto-js';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
- apiUrl="https://upgraded-cod-g45x5g5wp66r3v4xx-3000.app.github.dev/";
+ apiUrl="";
 
   constructor(private http: HttpClient) {}
 
