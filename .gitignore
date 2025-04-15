@@ -15,7 +15,7 @@ backend/certs/
 *.pem
 
 #Varaibili da NON commitare
-../VariabiliNonCommit
+/VariabiliNonCommit
 
 # Runtime data
 pids
