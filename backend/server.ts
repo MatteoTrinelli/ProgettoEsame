@@ -3,7 +3,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { loginRouter } from './user';
-import { API_URL } from '../VariabiliNonCommit';
+import { ORIGIN } from '../NON_COMMIT';
+
 dotenv.config();
 
 const app = express();
@@ -11,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 // Abilita CORS per tutte le origini
 app.use(cors({
-  origin: API_URL,
+  origin: ORIGIN,
 
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
