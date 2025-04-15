@@ -1,9 +1,9 @@
 // server.ts
 import express from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors'; 
-import { loginRouter } from './user'; 
-
+import cors from 'cors';
+import { loginRouter } from './user';
+import { API_URL } from '../VariabiliNonCommit';
 dotenv.config();
 
 const app = express();
@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 3000;
 
 // Abilita CORS per tutte le origini
 app.use(cors({
-  origin: 'https://obscure-train-5w9qx4g9g9gc49p7-4200.app.github.dev',
-  
+  origin: API_URL,
+
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
@@ -23,7 +23,7 @@ app.use(cors({
 app.use(express.json());
 
 
-app.use('/auth', loginRouter); 
+app.use('/auth', loginRouter);
 
 // Test route
 app.get('/', (req, res) => {
