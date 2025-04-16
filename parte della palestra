@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ClinchNet - Palestra</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <style>
+    :root {
+      --gradient: linear-gradient(to right, #ff416c, #ff4b2b);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    .dashboard {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .sidebar {
+      width: 80px;
+      background: white;
+      padding: 1rem 0.5rem;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .sidebar img.logo {
+      width: 24px;
+    }
+
+    .nav-icon {
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      overflow: hidden;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .header h2 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .header small {
+      color: #777;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: bold;
+    }
+
+    .user-profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .cards {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      overflow: hidden;
+    }
+
+    .section {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    .palestra img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .button {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .person-card {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    .person-card img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+
+    .badge {
+      margin-left: auto;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      color: white;
+    }
+
+    .green { background-color: #28c76f; }
+    .red { background-color: #ea5455; }
+    .orange { background-color: #ff9f43; }
+
+    .right-column {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      gap: 2rem;
+    }
+
+    .coach {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .students {
+      flex: 2;
+      min-height: 0;
+    }
+
+    @media (max-width: 768px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      .right-column {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="sidebar">
+      <img src="https://img.icons8.com/color/48/null/instagram-new--v1.png" alt="Logo" class="logo" />
+      <div class="nav-icon">🏠</div>
+      <div class="nav-icon">👤</div>
+      <div class="nav-icon">📊</div>
+      <div class="nav-icon">⚙️</div>
+    </div>
+
+    <div class="main">
+      <div class="header">
+        <div>
+          <h2>Il mio profilo</h2>
+          <small>Benvenuto nella tua area personale</small>
+        </div>
+        <div class="user-profile">
+          <img src="https://img.icons8.com/?size=50&id=7819&format=png&color=000000" alt="User" />
+          <span>Nome Cognome</span>
+        </div>
+      </div>
+
+      <div class="cards">
+        <!-- Palestra -->
+        <div class="section palestra">
+          <h3>ClinchNet Gym</h3>
+          <img src="https://via.placeholder.com/600x300" alt="Palestra">
+          <p><strong>Indirizzo:</strong> Via degli Eroi, 45, Roma</p>
+          <p><strong>Orari:</strong> Lun-Ven 08:00–22:00, Sab 09:00–18:00</p>
+          <p><strong>Descrizione:</strong> Palestra dedicata ad arti marziali miste, con coach certificati e allenamenti professionali su tatami di ultima generazione.</p>
+          <button class="button">Modifica</button>
+        </div>
+
+        <!-- Coach + Allievi -->
+        <div class="right-column">
+          <div class="section coach">
+            <h4>Coach</h4>
+            <div class="person-card">
+              <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Coach 1">
+              <span>Giovanni Rossi</span>
+              <span class="badge green">Attivo</span>
+            </div>
+            <div class="person-card">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Coach 2">
+              <span>Laura Bianchi</span>
+              <span class="badge red">Assente</span>
+            </div>
+          </div>
+
+          <div class="section students">
+            <h4>Allievi</h4>
+            <div class="person-card">
+              <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Allievo 1">
+              <span>Marco Verdi</span>
+              <span class="badge green">Attivo</span>
+            </div>
+            <div class="person-card">
+              <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Allieva 2">
+              <span>Lucia Neri</span>
+              <span class="badge orange">In Attesa</span>
+            </div>
+            <div class="person-card">
+              <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Allievo 3">
+              <span>Alessandro Gialli</span>
+              <span class="badge green">Attivo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

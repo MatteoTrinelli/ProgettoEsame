@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PalestraComponent } from './palestra.component';
+import { PalestraProfiloComponent } from './palestra-profilo.component';
 
-describe('PalestraComponent', () => {
-  let component: PalestraComponent;
-  let fixture: ComponentFixture<PalestraComponent>;
+describe('PalestraProfiloComponent', () => {
+  let component: PalestraProfiloComponent;
+  let fixture: ComponentFixture<PalestraProfiloComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PalestraComponent]
+      imports: [PalestraProfiloComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PalestraComponent);
+    fixture = TestBed.createComponent(PalestraProfiloComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
