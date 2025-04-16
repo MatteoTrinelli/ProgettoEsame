@@ -34,7 +34,7 @@
   cursor: pointer;
 }
 
-.main {
+.mainContainer {
   flex: 1;
   padding: 2rem;
 }
