@@ -3,10 +3,10 @@ import { UserService } from '../../services/auth/user.service';
 import { Router,RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SceltaUserComponent } from '../../components/scelta-user/scelta-user.component';
-
+import { RegistrazioneAllievoComponent } from '../../components/registrazione-allievo/registrazione-allievo.component';
 @Component({
   selector: 'app-registrazione',
-  imports: [ReactiveFormsModule,RouterLink,SceltaUserComponent],
+  imports: [ReactiveFormsModule,RouterLink,SceltaUserComponent,RegistrazioneAllievoComponent],
   templateUrl: './registrazione.component.html',
   styleUrl: './registrazione.component.css'
 })

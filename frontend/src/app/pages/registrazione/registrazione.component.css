@@ -3,13 +3,13 @@
     margin: 0;
     padding: 0;
   }
-  
+
   .main-container {
     display: flex;
     height: 100vh;
     overflow: hidden;
   }
-  
+
   .left-section {
     flex: 1;
     position: relative;
@@ -22,7 +22,7 @@
     background-size: cover;
     background-position: center;
   }
-  
+
   .left-overlay {
     position: absolute;
     top: 0;
@@ -33,28 +33,28 @@
     backdrop-filter: blur(8px);
     z-index: 1;
   }
-  
+
   .left-content {
     position: relative;
     z-index: 2;
     padding: 4rem 3rem;
     text-align: left;
   }
-  
+
   .left-content h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     color: #ffffff;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
   }
-  
+
   .left-content p {
     font-size: 1.2rem;
     max-width: 400px;
     color: #f0f0f0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
   }
-  
+
   .right-section {
     flex: 1;
     background-color: #ffffff !important; /* Sempre bianco, anche in dark mode */
@@ -67,32 +67,31 @@
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
     color-scheme: light; /* Forza stile chiaro */
   }
-  
+
   .right-section h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
     color: #000;
   }
-  
+
   .brand {
     font-size: 6rem;
     font-weight: normal;
     color: #ff0000;
     text-align: center;
-    margin-bottom: 2rem;
   }
-  
+
   form {
     display: flex;
     flex-direction: column;
   }
-  
+
   label {
     font-size: 0.9rem;
     color: #000;
     margin-bottom: 0.3rem;
   }
-  
+
   input[type="email"],
   input[type="password"] {
     padding: 12px;
@@ -101,7 +100,7 @@
     border: 1px solid #333;
     font-size: 1rem;
   }
-  
+
   .form-options {
     display: flex;
     justify-content: space-between;
@@ -110,11 +109,11 @@
     margin-bottom: 1.2rem;
     color: #555;
   }
-  
+
   .form-options input[type="checkbox"] {
     margin-right: 5px;
   }
-  
+
   button {
     padding: 12px;
     border: none;
@@ -125,37 +124,36 @@
     cursor: pointer;
     transition: background 0.3s ease;
   }
-  
+
   button:hover {
     background-color: #D32F2F;
   }
-  
+
   .signup-link {
     margin-top: 1.5rem;
     text-align: center;
     font-size: 0.9rem;
   }
-  
+
   .signup-link a,
   .form-options a {
     color: #ff0000;
     text-decoration: none;
     font-weight: bold;
   }
-  
+
   .signup-link a:hover,
   .form-options a:hover {
     text-decoration: underline;
   }
-  
+
   @media (max-width: 900px) {
     .main-container {
       flex-direction: column;
     }
-  
+
     .left-section,
     .right-section {
       border-radius: 0;
     }
   }
-  
