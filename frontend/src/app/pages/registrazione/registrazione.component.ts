@@ -4,15 +4,16 @@ import { Router,RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { SceltaUserComponent } from '../../components/scelta-user/scelta-user.component';
 import { RegistrazioneAllievoComponent } from '../../components/registrazione-allievo/registrazione-allievo.component';
+import { RegistrazioneMaestroComponent } from '../../components/registrazione-maestro/registrazione-maestro.component';
 @Component({
   selector: 'app-registrazione',
-  imports: [ReactiveFormsModule,RouterLink,SceltaUserComponent,RegistrazioneAllievoComponent],
+  imports: [ReactiveFormsModule,RouterLink,SceltaUserComponent,RegistrazioneAllievoComponent,RegistrazioneMaestroComponent],
   templateUrl: './registrazione.component.html',
   styleUrl: './registrazione.component.css'
 })
 export class RegistrazioneComponent {
   currentYear: number = new Date().getFullYear();
-  sceltaTipo:boolean=false;
+  sceltaTipo:number=0;
 
   constructor(
       private userService:UserService,
@@ -24,7 +25,8 @@ export class RegistrazioneComponent {
     password: new FormControl('', [Validators.required, Validators.minLength(3)]),
   });
 
-  aggiornaScelta(tipo: boolean) {
+  aggiornaScelta(tipo: number) {
     this.sceltaTipo = tipo;
+    console.log(this.sceltaTipo)
   }
 }
