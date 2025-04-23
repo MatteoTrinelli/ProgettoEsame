@@ -1,14 +1,39 @@
 <div id="generalContainer">
   <div class="dashboard">
 
+    <!-- Sidebar -->
     <div class="sidebar">
       <strong>CN</strong>
-      <div class="nav-icon"><img src="https://img.icons8.com/?size=100&id=7819&format=png&color=000000"></div> <!--Pagina profilo (attuale)-->
-      <div class="nav-icon"><img src="https://img.icons8.com/?size=100&id=l5Br0fxxE35Q&format=png&color=000000"></div> <!--Pagina palestra-->
-      <div class="nav-icon"><img src="https://img.icons8.com/?size=100&id=364&format=png&color=000000"></div> <!--Porta alla pagina modifiche-->
+
+      <div
+        id="selezionaProfilo"
+        class="nav-icon"
+        [class.attivo]="sezioneAttiva === 'profilo'"
+        (click)="mostraSezione('profilo')"
+      >
+        <img src="https://img.icons8.com/?size=100&id=7819&format=png&color=000000">
+      </div>
+
+      <div
+        id="selezionaPalestra"
+        class="nav-icon"
+        [class.attivo]="sezioneAttiva === 'palestra'"
+        (click)="mostraSezione('palestra')"
+      >
+        <img src="https://img.icons8.com/?size=100&id=l5Br0fxxE35Q&format=png&color=000000">
+      </div>
+
+      <div
+        id="selezionaModifiche"
+        class="nav-icon"
+        [class.attivo]="sezioneAttiva === 'impostazioni'"
+        (click)="mostraSezione('impostazioni')"
+      >
+        <img src="https://img.icons8.com/?size=100&id=364&format=png&color=000000">
+      </div>
     </div>
 
-
+    <!-- Contenuto principale -->
     <div class="mainContainer">
       <div class="header">
         <div>
@@ -17,13 +42,19 @@
         </div>
         <div class="user-profile">
           <img src="https://img.icons8.com/?size=50&id=7819&format=png&color=000000" alt="User" />
-          <span>"NomeCognome"</span> <!--Mostrare nome e cognome-->
+          <span>"NomeCognome"</span>
         </div>
       </div>
-     <!-- <app-profilo></app-profilo> -->
-      <app-palestra-profilo></app-palestra-profilo>
-    </div>
-  </div>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
 
+      <!-- Sezione dinamica -->
+      <div class="sezione-variabile" [ngSwitch]="sezioneAttiva">
+        <app-profilo *ngSwitchCase="'profilo'"></app-profilo>
+        <app-palestra-profilo *ngSwitchCase="'palestra'"></app-palestra-profilo>
+        <app-impostazioni-profilo *ngSwitchCase="'impostazioni'"></app-impostazioni-profilo>
+      </div>
+    </div>
+
+  </div>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
 </div>
