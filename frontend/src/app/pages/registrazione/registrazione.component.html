@@ -9,11 +9,19 @@
     </div>
     <div class="right-section">
       <div class="brand">ClinchNet</div>
-      @if(!sceltaTipo){
+      @if(sceltaTipo==0){
         <app-scelta-user (sceltaEvent)="aggiornaScelta($event)"></app-scelta-user>
       }
       @else{
+        @if(sceltaTipo==1)
+        {
+          <app-registrazione-maestro></app-registrazione-maestro>
+        }
+        @else 
+        {
           <app-registrazione-allievo></app-registrazione-allievo>
+        }
+
       }
 
       <div class="signup-link">
