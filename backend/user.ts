@@ -2,7 +2,7 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { db } from './database';
-import { AuthMiddleware } from './authMiddleware';
+
 
 const loginRouter = express.Router();
 
@@ -39,11 +39,11 @@ loginRouter.post('/login', (req:any, res:any) => {
   });
 });
 
-loginRouter.post('/register', AuthMiddleware.hashPassword, (req, res) => {
-  const { email, passwordHash } = req.body;
+loginRouter.post('/register', (req, res) => {
+  const { email, passwordHash, } = req.body;
 
   db.query(
-    'INSERT INTO utenti (email, passwordHash) VALUES (?, ?)',
+    'INSERT INTO utenti (email, passwordHash, nome, cognome, dataNascita, nazionalità, luogoNascita,disciplinaPrincipale, ) VALUES (?, ?)',
     [email, passwordHash],
     (err, result) => {
       if (err) {
@@ -56,8 +56,5 @@ loginRouter.post('/register', AuthMiddleware.hashPassword, (req, res) => {
   );
 });
 
-loginRouter.get('/profilo', AuthMiddleware.verificaToken, (req, res) => {
-  res.json({ message: 'Accesso autorizzato', utente: req.user });
-});
 
 export { loginRouter };
