@@ -11,12 +11,12 @@ export class RegistrazioneAllievoComponent {
 
 
   registerForm = new FormGroup({
-    nome: new FormControl('abc',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    cognome: new FormControl('abc',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    dob: new FormControl('',[Validators.required]),
-    nazionalità: new FormControl('abc',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    luogoNascita: new FormControl('abc',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    disciplinaPrinciplae : new FormControl('abc',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    gradoDisciplinaPrincipale : new FormControl('abc',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]), 
+    nome: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
+    cognome: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
+    dob: new FormControl(),
+    nazionalità: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
+    luogoNascita: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
+    disciplinaPrinciplae : new FormControl(),
+    gradoDisciplinaPrincipale : new FormControl(),
   });
 }
