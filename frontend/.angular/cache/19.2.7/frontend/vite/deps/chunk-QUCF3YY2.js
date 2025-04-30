@@ -53,8 +53,4 @@ export {
    * License: MIT
    *)
 */
-<<<<<<<< HEAD:frontend/.angular/cache/19.2.7/frontend/vite/deps/chunk-XAFFWRCH.js
-//# sourceMappingURL=chunk-XAFFWRCH.js.map
-========
-//# sourceMappingURL=chunk-AIAJIZHS.js.map
->>>>>>>> ea4542c88773f85686a1f15013a282be6700ead1:frontend/.angular/cache/19.2.7/frontend/vite/deps/chunk-AIAJIZHS.js
+//# sourceMappingURL=chunk-QUCF3YY2.js.map

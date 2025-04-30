@@ -1,11 +1,7 @@
 import {
   DOCUMENT,
   isPlatformBrowser
-<<<<<<<< HEAD:frontend/.angular/cache/19.2.7/frontend/vite/deps/chunk-KMLEJNPW.js
-} from "./chunk-XAFFWRCH.js";
-========
-} from "./chunk-AIAJIZHS.js";
->>>>>>>> ea4542c88773f85686a1f15013a282be6700ead1:frontend/.angular/cache/19.2.7/frontend/vite/deps/chunk-IM4TAD7W.js
+} from "./chunk-QUCF3YY2.js";
 import {
   ApplicationRef,
   Attribute,
@@ -5132,8 +5128,4 @@ export {
    * License: MIT
    *)
 */
-<<<<<<<< HEAD:frontend/.angular/cache/19.2.7/frontend/vite/deps/chunk-KMLEJNPW.js
-//# sourceMappingURL=chunk-KMLEJNPW.js.map
-========
-//# sourceMappingURL=chunk-IM4TAD7W.js.map
->>>>>>>> ea4542c88773f85686a1f15013a282be6700ead1:frontend/.angular/cache/19.2.7/frontend/vite/deps/chunk-IM4TAD7W.js
+//# sourceMappingURL=chunk-TNIMOS4P.js.map

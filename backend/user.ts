@@ -1,29 +1,23 @@
-// login.ts
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import CryptoJS from 'crypto-js';
+import bcrypt from 'bcrypt';
 import { db } from './database';
+import { AuthMiddleware } from './authMiddleware';
 
 const loginRouter = express.Router();
 
-// Funzione per generare il JWT
 function generateToken(userId: number, email: string) {
-  return jwt.sign({ userId, email }, process.env.JWT_SECRET, { expiresIn: '1h' });
+  return jwt.sign({ userId, email }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
 }
 
-// Endpoint di login
-loginRouter.post('/login', (req: any, res: any) => {
+loginRouter.post('/login', (req:any, res:any) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
     return res.status(400).json({ message: 'Email e password sono obbligatorie.' });
   }
 
-  // Calcola l'hash della password ricevuta (SHA256)
- // const hashedPassword = CryptoJS.SHA256(password).toString();
-
-  // Verifica nel database
-  db.query('SELECT * FROM utenti WHERE mail = ?', [email], (err, results: any[]) => {
+  db.query('SELECT * FROM utenti WHERE email = ?', [email], async (err, results: any[]) => {
     if (err) {
       console.error('Errore nel database:', err);
       return res.status(500).json({ message: 'Errore server' });
@@ -31,21 +25,39 @@ loginRouter.post('/login', (req: any, res: any) => {
 
     if (results.length === 0) {
       return res.status(401).json({ message: 'Credenziali errate' });
-      console.log("qui")
     }
 
     const user = results[0];
+    const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
 
-    // Confronta l'hash
-    if (user.passwordHash !== password) {
-      return res.status(401).json({ message: 'Credenziali errate' });   
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: 'Credenziali errate' });
     }
 
-    // Genera e restituisce il token
     const token = generateToken(user.id, user.email);
-    console.log(token)
     res.json({ token });
   });
+});
+
+loginRouter.post('/register', AuthMiddleware.hashPassword, (req, res) => {
+  const { email, passwordHash } = req.body;
+
+  db.query(
+    'INSERT INTO utenti (email, passwordHash) VALUES (?, ?)',
+    [email, passwordHash],
+    (err, result) => {
+      if (err) {
+        console.error('Errore nel database:', err);
+        return res.status(500).json({ message: 'Errore server' });
+      }
+
+      res.status(201).json({ message: 'Utente registrato con successo' });
+    }
+  );
+});
+
+loginRouter.get('/profilo', AuthMiddleware.verificaToken, (req, res) => {
+  res.json({ message: 'Accesso autorizzato', utente: req.user });
 });
 
 export { loginRouter };

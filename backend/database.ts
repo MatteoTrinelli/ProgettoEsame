@@ -5,7 +5,6 @@ import fs from 'fs';
 
 dotenv.config();
 
-// Configurazione connessione al DB
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   port: parseInt(process.env.DB_PORT),
@@ -25,4 +24,4 @@ db.connect((err) => {
   console.log('Connesso al database MySQL');
 });
 
-export { db }; // Esportiamo la connessione
+export { db };
