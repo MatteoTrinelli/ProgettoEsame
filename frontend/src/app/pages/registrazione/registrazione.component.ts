@@ -5,6 +5,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { SceltaUserComponent } from '../../components/scelta-user/scelta-user.component';
 import { RegistrazioneAllievoComponent } from '../../components/registrazione-allievo/registrazione-allievo.component';
 import { RegistrazioneMaestroComponent } from '../../components/registrazione-maestro/registrazione-maestro.component';
+
+
 @Component({
   selector: 'app-registrazione',
   imports: [ReactiveFormsModule,RouterLink,SceltaUserComponent,RegistrazioneAllievoComponent,RegistrazioneMaestroComponent],

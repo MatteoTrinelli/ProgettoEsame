@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-registrazione-allievo',
+  selector: 'app-registrazione-maestro',
   imports: [ReactiveFormsModule],
   templateUrl: './registrazione-maestro.component.html',
   styleUrl: './registrazione-maestro.component.css'
 })
-export class RegistrazioneAllievoComponent {
+export class RegistrazioneMaestroComponent {
 
 
   registerForm = new FormGroup({
