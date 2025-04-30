@@ -1,34 +1,36 @@
 <div class="container register-container">
-  <h2 class="text-center">Registrazione Maestro</h2>
-  <form id="register-form">
+  <form id="register-form"  [formGroup]="registerForm" ngSubmit="onSubmit()">
       <div class="form-row">
           <div class="input-half">
               <label for="first-name">Nome</label>
-              <input type="text" id="first-name" name="first-name" placeholder="Inserisci il tuo nome" required>
+              <input type="text" id="first-name"  formControlName="nome" name="first-name" placeholder="Inserisci il tuo nome" required>
           </div>
           <div class="input-half">
               <label for="last-name">Cognome</label>
-              <input type="text" id="last-name" name="last-name" placeholder="Inserisci il tuo cognome" required>
+              <input type="text" id="last-name"  formControlName="cognome" name="last-name" placeholder="Inserisci il tuo cognome" required>
           </div>
       </div>
 
       <div class="form-row">
           <div class="input-half">
-              <label for="dob">Data di Nascita</label>
-              <input type="date" id="dob" name="dob" required>
-          </div>
+              <!--<label for="dob">Data di Nascita</label>
+              <input type="date"  formControlName="dob" id="dob" name="dob" required>
+
+          -->
+              <input type="date"  formControlName="dataNascita" id="dob" name="dob" required>
+                </div>
           <div class="input-half">
               <label for="city">Nazionalità</label>
-              <input type="text" id="nazionality" name="nazionality" placeholder="Inserisci la tua nazionalità" required>
+              <input type="text"  formControlName="nazionalità" id="nazionality" name="nazionality" placeholder="Inserisci la tua nazionalità" required>
           </div>
           <div class="input-half">
               <label for="city">Luogo di nascita</label>
-              <input type="text" id="pob" name="pob" placeholder="Inserisci il luogo di nascita" required>
+              <input type="text"  formControlName="luogoNascita"  id="pob" name="pob" placeholder="Inserisci il luogo di nascita" required>
           </div>
       </div>
 
       <label for="martial-art">Discipline Marziali</label>
-      <select id="martial-art" name="martial-art" required onchange="updateGrades()">
+      <select  id="martial-art" name="martial-art" formControlName="disciplinaPrincipale" required onchange="updateGrades()">
           <option value="">Seleziona una disciplina</option>
           <option value="karate">Karate</option>
           <option value="judo">Judo</option>
@@ -45,6 +47,5 @@
       </select>
 
       <button type="submit">Registrati</button>
-      <p class="small">Sarà possibile effettuare ulteriori modifiche nell'aera palestra</p>
   </form>
 </div>
