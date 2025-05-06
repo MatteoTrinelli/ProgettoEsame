@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import CryptoJS from 'crypto-js';
+import bcrypt from 'bcrypt';
 import { API_URL } from './../../../../../NON_COMMIT';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class UserService {
 
   login(email: string, password: string): Observable<any> {
     const hashedPassword=CryptoJS.SHA256(password).toString();
-    return this.http.post<any>(`${this.apiUrl}auth/login`, { email, password:hashedPassword });
+    return this.http.post<any>(`${this.apiUrl}api/login`, { email, password:hashedPassword });
   }
 
   saveToken(token: string) {

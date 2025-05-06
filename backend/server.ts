@@ -2,7 +2,8 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { loginRouter } from './user';
+import { authRouter } from './user';
+
 
 dotenv.config();
 
@@ -19,7 +20,7 @@ app.use(cors({
 
 app.use(express.json());
 
-app.use('/auth', loginRouter);
+app.use(authRouter);
 
 // Test route
 app.get('/', (req, res) => {

@@ -2,22 +2,22 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import { db } from './database';
+import SHA256 from "crypto-js/sha256.js";
 
-
-const loginRouter = express.Router();
+const authRouter = express.Router();
 
 function generateToken(userId: number, email: string) {
   return jwt.sign({ userId, email }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
 }
 
-loginRouter.post('/login', (req:any, res:any) => {
+authRouter.post('/api/login', (req:any, res:any) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
     return res.status(400).json({ message: 'Email e password sono obbligatorie.' });
   }
 
-  db.query('SELECT * FROM utenti WHERE email = ?', [email], async (err, results: any[]) => {
+  db.query('SELECT * FROM utenti WHERE mail = ?', [email], async (err, results: any[]) => {
     if (err) {
       console.error('Errore nel database:', err);
       return res.status(500).json({ message: 'Errore server' });
@@ -28,18 +28,18 @@ loginRouter.post('/login', (req:any, res:any) => {
     }
 
     const user = results[0];
-    const isPasswordValid = await bcrypt.compare(password, user.passwordHash);
-
-    if (!isPasswordValid) {
-      return res.status(401).json({ message: 'Credenziali errate' });
-    }
+    const provaPassword=SHA256(password);
+    if(password!=user.passwordHash)
+      {
+         return res.status(401).json({ message: 'Credenziali errate' });
+      }
 
     const token = generateToken(user.id, user.email);
     res.json({ token });
   });
 });
 
-loginRouter.post('/register', (req, res) => {
+authRouter.post('/register', (req, res) => {
   const { email, passwordHash, } = req.body;
 
   db.query(
@@ -57,4 +57,4 @@ loginRouter.post('/register', (req, res) => {
 });
 
 
-export { loginRouter };
+export { authRouter };
