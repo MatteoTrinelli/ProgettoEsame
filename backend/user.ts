@@ -39,22 +39,54 @@ authRouter.post('/api/login', (req:any, res:any) => {
   });
 });
 
-authRouter.post('/register', (req, res) => {
-  const { email, passwordHash, } = req.body;
+authRouter.post('/register', (req:any, res:any) => {
+  const {
+    nome,
+    cognome,
+    data_nascita,
+    luogo_nascita,
+    nazionalita,
+    codice_disciplina,
+    codice_grado,
+    codice_palestra,
+    numero_cellulare,
+    email,
+    passwordHash,
+  } = req.body;
 
-  db.query(
-    'INSERT INTO utenti (email, passwordHash, nome, cognome, dataNascita, nazionalità, luogoNascita,disciplinaPrincipale, ) VALUES (?, ?)',
-    [email, passwordHash],
-    (err, result) => {
-      if (err) {
-        console.error('Errore nel database:', err);
-        return res.status(500).json({ message: 'Errore server' });
-      }
+  // Controllo che tutti i campi siano presenti
+  if (
+    !nome || !cognome || !data_nascita || !luogo_nascita || !nazionalita ||
+    !codice_disciplina || !codice_grado || !codice_palestra ||
+    !numero_cellulare || !email || !passwordHash
+  ) {
+    return res.status(400).json({ message: 'Tutti i campi sono obbligatori' });
+  }
 
-      res.status(201).json({ message: 'Utente registrato con successo' });
+  const sql = `
+    INSERT INTO utenti (
+      nome, cognome, data_nascita, luogo_nascita, nazionalita,
+      codice_disciplina, codice_grado, codice_palestra,
+      numero_cellulare, mail, passwordHash
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  const values = [
+    nome, cognome, data_nascita, luogo_nascita, nazionalita,
+    codice_disciplina, codice_grado, codice_palestra,
+    numero_cellulare, email, passwordHash,
+  ];
+
+  db.query(sql, values, (err, result) => {
+    if (err) {
+      console.error('Errore nel database:', err);
+      return res.status(500).json({ message: 'Errore server' });
     }
-  );
+
+    res.status(201).json({ message: 'Utente registrato con successo' });
+  });
 });
+
 
 
 export { authRouter };
