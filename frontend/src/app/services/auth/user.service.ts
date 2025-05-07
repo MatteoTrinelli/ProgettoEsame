@@ -36,40 +36,42 @@ export class UserService {
     return !!this.getToken();
   }
 
-  // async signup(
-  //   mail: string,
-  //   password: string,
-  //   username: string,
-  //   nome: string,
-  //   cognome: string,
-  //   codiceRuolo: string,
-  //   codiceGrado: string,
-  //   codDisciplinaPrincipale: string,
-  //   nazionalità: string
-  // ) {
-  //   // Calcola l'hash SHA256 della password
-  //   const hashedPassword = CryptoJS.SHA256(password).toString();
-
-  //   const requestBody = {
-  //     mail: mail,
-  //     password: hashedPassword, // Invia la password hashata
-  //     username: username,
-  //     nome: nome,
-  //     cognome: cognome,
-  //     codiceRuolo: codiceRuolo,
-  //     codiceGrado: codiceGrado,
-  //     codDisciplinaPrincipale: codDisciplinaPrincipale,
-  //     nazionalità: nazionalità,
-  //   };
-
-  //   try {
-  //     const response = await firstValueFrom(
-  //       this.http.post<SignupResponse>('http://localhost:3000/sign-up', requestBody)
-  //     );
-  //     return response;
-  //   } catch (error) {
-  //     console.error('Signup failed', error);
-  //     throw error;
-  //   }
-  // }
+   register(
+    nome: string,
+    cognome: string,
+    dataNascita: string,
+    luogoNascita: string,
+    nazionalità: string,
+    codDisciplinaPrincipale: string,
+    codiceGrado: string,
+    cellulare: string, // keep as string
+    codice_ruolo: number,
+    mail: string,
+    password: string
+  ) {
+    try {
+      // Calcola l'hash SHA256 della password
+      const hashedPassword = CryptoJS.SHA256(password).toString();
+  
+      const requestBody = {
+        nome: nome,
+        cognome: cognome,
+        data_nascita: dataNascita,
+        luogo_nascita: luogoNascita,
+        nazionalità: nazionalità,
+        codDisciplinaPrincipale: codDisciplinaPrincipale,
+        codice_grado: codiceGrado,
+        cellulare: cellulare,
+        codice_ruolo: codice_ruolo,
+        mail: mail,
+        password: hashedPassword,
+      };
+  
+      return this.http.post<any>(`${this.apiUrl}api/register`, requestBody);
+    } catch (error) {
+      console.error('Errore durante la registrazione:', error);
+      throw error; 
+    }
+  }
+  
 }
