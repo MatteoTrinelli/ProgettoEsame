@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import bcrypt from 'bcrypt';
 import { API_URL } from './../../../../../NON_COMMIT';
+import { SHA256 } from 'crypto-js';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
-    const hashedPassword=CryptoJS.SHA256(password).toString();
+    const hashedPassword=SHA256(password).toString();
     return this.http.post<any>(`${this.apiUrl}api/login`, { email, password:hashedPassword });
   }
 

@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SceltaPageComponent } from './components/scelta-page/scelta-page.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
