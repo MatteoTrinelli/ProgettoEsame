@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import bcrypt from 'bcrypt';
 import { API_URL } from './../../../../../NON_COMMIT';
 import { SHA256 } from 'crypto-js';
 
@@ -49,10 +48,10 @@ export class UserService {
     codice_ruolo: number,
     mail: string,
     password: string
-  ) {
+  ):any {
     try {
       // Calcola l'hash SHA256 della password
-      const hashedPassword = CryptoJS.SHA256(password).toString();
+      const hashedPassword = SHA256(password).toString();
   
       const requestBody = {
         nome: nome,
@@ -67,7 +66,7 @@ export class UserService {
         mail: mail,
         password: hashedPassword,
       };
-  
+      console.log(requestBody);
       return this.http.post<any>(`${this.apiUrl}api/register`, requestBody);
     } catch (error) {
       console.error('Errore durante la registrazione:', error);

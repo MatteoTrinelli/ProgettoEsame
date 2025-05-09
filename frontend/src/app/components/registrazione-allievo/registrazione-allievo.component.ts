@@ -33,9 +33,11 @@ export class RegistrazioneAllievoComponent {
   });
 
   onSubmit() {
-    if (this.registerForm.valid) {
-      const { nome,cognome,dataNascita,luogoNascita,nazionalità, disciplinaPrinciplae,gradoDisciplinaPrincipale,cellulare,mail,password }:string|undefined|null|any = this.registerForm.value;
-      this.userService.register(nome,cognome,dataNascita,luogoNascita,nazionalità, disciplinaPrinciplae,gradoDisciplinaPrincipale,cellulare,this.codice_ruolo,mail,password).subscribe({
+
+    // if (this.registerForm.valid) {
+          console.log(this.codice_ruolo)
+      const { nome,cognome,dob,luogoNascita,nazionalità, disciplinaPrincipale,gradoDisciplinaPrincipale,cellulare,mail,password }:string|undefined|null|any = this.registerForm.value;
+      this.userService.register(nome,cognome,dob,luogoNascita,nazionalità, disciplinaPrincipale,gradoDisciplinaPrincipale,cellulare,this.codice_ruolo,mail,password).subscribe({
         next: (res:any) => {
           console.log('Signin riuscito!');
           this.Router.navigate(["conferma"]);
@@ -45,5 +47,5 @@ export class RegistrazioneAllievoComponent {
         }
       });
     }
-  }
+  // }
 }

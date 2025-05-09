@@ -1,5 +1,5 @@
 <div class="container register-container">
-  <form id="register-form"  [formGroup]="registerForm" ngSubmit="onSubmit()">
+  <form id="register-form"  [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="form-row">
           <div class="input-half">
               <label for="first-name">Nome</label>
@@ -36,7 +36,7 @@
       </div>
 
       <label for="martial-art">Discipline Marziali</label>
-      <select  id="martial-art" name="martial-art" formControlName="disciplinaPrincipale" required onchange="updateGrades()">
+      <select  id="martial-art" name="martial-art" formControlName="disciplinaPrincipale" required >
           <option value="">Seleziona una disciplina</option>
           <option value="karate">Karate</option>
           <option value="judo">Judo</option>
@@ -48,8 +48,9 @@
       </select>
 
       <label for="grade">Grado Imparato</label>
-      <select id="grade" name="grade" required>
-          <option value="">Seleziona il grado</option>
+      <select id="grade" name="grade" formControlName="gradoDisciplinaPrincipale" required>
+        <option value="cintura blu">Cintura blu</option>
+         <option value="cintura nera">Cintura nera</option>
       </select>
 
       <label for="password">Password</label>
@@ -57,7 +58,7 @@
           <input type="password">
         </div>
 
-      <button type="submit">Registrati</button>
+      <button>Registrati</button>
       <div class="text-center">Ulteriori informazioni potranno essere inserite in seguito</div>
   </form>
 </div>

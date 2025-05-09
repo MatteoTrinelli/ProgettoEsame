@@ -39,7 +39,7 @@ authRouter.post('/api/login', (req:any, res:any) => {
   });
 });
 
-authRouter.post('/register', (req:any, res:any) => {
+authRouter.post('/api/register', (req:any, res:any) => {
   const {
     nome,
     cognome,
@@ -54,7 +54,7 @@ authRouter.post('/register', (req:any, res:any) => {
     passwordHash,
   } = req.body;
 
-  // Controllo che tutti i campi siano presenti
+
   if (
     !nome || !cognome || !data_nascita || !luogo_nascita || !nazionalita ||
     !codice_disciplina || !codice_grado || !codice_palestra ||
@@ -70,6 +70,7 @@ authRouter.post('/register', (req:any, res:any) => {
       numero_cellulare, mail, passwordHash
     ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
+  
 
   const values = [
     nome, cognome, data_nascita, luogo_nascita, nazionalita,
