@@ -1,8 +1,7 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
 import { db } from './database';
-import SHA256 from "crypto-js/sha256.js";
+import SHA256 from 'crypto-js/sha256.js';
 
 const authRouter = express.Router();
 
@@ -10,14 +9,15 @@ function generateToken(userId: number, email: string) {
   return jwt.sign({ userId, email }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
 }
 
-authRouter.post('/api/login', (req:any, res:any) => {
+// LOGIN
+authRouter.post('/api/login', (req: any, res: any) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
     return res.status(400).json({ message: 'Email e password sono obbligatorie.' });
   }
 
-  db.query('SELECT * FROM utenti WHERE mail = ?', [email], async (err, results: any[]) => {
+  db.query('SELECT * FROM utenti WHERE mail = ?', [email], (err, results: any[]) => {
     if (err) {
       console.error('Errore nel database:', err);
       return res.status(500).json({ message: 'Errore server' });
@@ -28,18 +28,20 @@ authRouter.post('/api/login', (req:any, res:any) => {
     }
 
     const user = results[0];
-    const provaPassword=SHA256(password);
-    if(password!=user.passwordHash)
-      {
-         return res.status(401).json({ message: 'Credenziali errate' });
-      }
+    const hashedInput = SHA256(password).toString();
 
-    const token = generateToken(user.id, user.email);
+    if (hashedInput !== user.passwordHash) {
+      return res.status(401).json({ message: 'Credenziali errate' });
+    }
+
+    const token = generateToken(user.id, user.mail);
     res.json({ token });
   });
 });
 
-authRouter.post('/api/register', (req:any, res:any) => {
+// REGISTRAZIONE
+authRouter.post('/api/register', (req: any, res: any) => {
+  console.log(req.body);
   const {
     nome,
     cognome,
@@ -50,35 +52,38 @@ authRouter.post('/api/register', (req:any, res:any) => {
     codice_grado,
     codice_palestra,
     numero_cellulare,
+    codice_ruolo,
     email,
-    passwordHash,
+    password,
   } = req.body;
-
 
   if (
     !nome || !cognome || !data_nascita || !luogo_nascita || !nazionalita ||
-    !codice_disciplina || !codice_grado || !codice_palestra ||
-    !numero_cellulare || !email || !passwordHash
+    !codice_disciplina || !codice_grado || !numero_cellulare ||
+    !email || !password
   ) {
-    return res.status(400).json({ message: 'Tutti i campi sono obbligatori' });
+    return res.status(400).json({ message: 'Tutti i campi obbligatori devono essere compilati' });
+    console.log("si schianta qui")
   }
+
+  const passwordHash = SHA256(password).toString();
 
   const sql = `
     INSERT INTO utenti (
       nome, cognome, data_nascita, luogo_nascita, nazionalita,
       codice_disciplina, codice_grado, codice_palestra,
-      numero_cellulare, mail, passwordHash
-    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      numero_cellulare, codice_ruolo, mail, passwordHash
+    )
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `;
-  
 
   const values = [
     nome, cognome, data_nascita, luogo_nascita, nazionalita,
-    codice_disciplina, codice_grado, codice_palestra,
-    numero_cellulare, email, passwordHash,
+    codice_disciplina, codice_grado, codice_palestra || null,
+    numero_cellulare, codice_ruolo || null, email, passwordHash,
   ];
 
-  db.query(sql, values, (err, result) => {
+  db.query(sql, values, (err: any) => {
     if (err) {
       console.error('Errore nel database:', err);
       return res.status(500).json({ message: 'Errore server' });
@@ -87,7 +92,5 @@ authRouter.post('/api/register', (req:any, res:any) => {
     res.status(201).json({ message: 'Utente registrato con successo' });
   });
 });
-
-
 
 export { authRouter };

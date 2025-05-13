@@ -11,23 +11,23 @@
           </div>
           <div class="input-half">
             <label for="last-name">Email</label>
-            <input type="email" id="email"  formControlName="mail" name="email" placeholder="your@email.com" required>
+            <input type="email" id="email"  formControlName="mail" name="mail" placeholder="your@email.com" required>
           </div>
 
           <div class="input-half">
             <label for="last-name">Cellulare</label>
-            <input type="number" id=""  formControlName="cellulare" name="cellulare" placeholder="cellulare" required>
+            <input type="string" id=""  formControlName="cellulare" name="cellulare" placeholder="cellulare" required>
           </div>
       </div>
 
       <div class="form-row">
           <div class="input-half">
             <label for="dob">Data di Nascita</label>
-              <input type="date"  formControlName="dob" id="dob" name="dob" required>
+              <input type="date"  formControlName="dob" id="dataNascita" name="dob" required>
                 </div>
           <div class="input-half">
               <label for="city">Nazionalità</label>
-              <input type="text"  formControlName="nazionalità" id="nazionality" name="nazionality" placeholder="Inserisci la tua nazionalità" required>
+              <input type="text"  formControlName="nazionalita" id="nazionality" name="nazionality" placeholder="Inserisci la tua nazionalità" required>
           </div>
           <div class="input-half">
               <label for="city">Luogo di nascita</label>
@@ -48,14 +48,14 @@
       </select>
 
       <label for="grade">Grado Imparato</label>
-      <select id="grade" name="grade" formControlName="gradoDisciplinaPrincipale" required>
+      <select id="grade" name="grade" formControlName="gradoDisciplina" required>
         <option value="cintura blu">Cintura blu</option>
          <option value="cintura nera">Cintura nera</option>
       </select>
 
       <label for="password">Password</label>
         <div id="password" name="password" required>
-          <input type="password">
+          <input type="password" formControlName="password">
         </div>
 
       <button>Registrati</button>

@@ -12,32 +12,28 @@ import { Router } from '@angular/router';
 export class RegistrazioneAllievoComponent {
   constructor(private userService:UserService, private Router:Router){}
   errorMsg:string='';
-  codice_ruolo:number=2;
+  codice_ruolo:string='2';
 
   registerForm = new FormGroup({
   
-    nome: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    cognome: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    dob: new FormControl(),
-    luogoNascita: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    nazionalità: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
+    nome: new FormControl('a'),
+    cognome: new FormControl('a'),
+    dob: new FormControl('2025-05-13'),
+    luogoNascita: new FormControl('Bra'),
+    nazionalita: new FormControl('Italia'),
     disciplinaPrincipale : new FormControl(),
-    gradoDisciplinaPrincipale : new FormControl(),
-    cellulare: new FormControl(),
-    mail: new FormControl('', [Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(8),
-      Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).+$')  // almeno una minuscola, una maiuscola e un numero
-    ])
+    gradoDisciplina : new FormControl(),
+    cellulare: new FormControl('1234567890'),
+    mail: new FormControl('a@a.com'),
+    password: new FormControl('123')
   });
 
   onSubmit() {
 
     // if (this.registerForm.valid) {
           console.log(this.codice_ruolo)
-      const { nome,cognome,dob,luogoNascita,nazionalità, disciplinaPrincipale,gradoDisciplinaPrincipale,cellulare,mail,password }:string|undefined|null|any = this.registerForm.value;
-      this.userService.register(nome,cognome,dob,luogoNascita,nazionalità, disciplinaPrincipale,gradoDisciplinaPrincipale,cellulare,this.codice_ruolo,mail,password).subscribe({
+      const { nome,cognome,dob,luogoNascita,nazionalita, disciplinaPrincipale,gradoDisciplina,cellulare,mail,password }:string|undefined|null|any = this.registerForm.value;
+      this.userService.register(nome,cognome,dob,luogoNascita,nazionalita, disciplinaPrincipale,gradoDisciplina,cellulare,this.codice_ruolo,mail,password).subscribe({
         next: (res:any) => {
           console.log('Signin riuscito!');
           this.Router.navigate(["conferma"]);

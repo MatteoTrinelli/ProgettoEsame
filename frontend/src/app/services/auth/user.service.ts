@@ -41,11 +41,11 @@ export class UserService {
     cognome: string,
     dataNascita: string,
     luogoNascita: string,
-    nazionalità: string,
+    nazionalita: string,
     codDisciplinaPrincipale: string,
     codiceGrado: string,
     cellulare: string, // keep as string
-    codice_ruolo: number,
+    codice_ruolo: string,
     mail: string,
     password: string
   ):any {
@@ -58,7 +58,7 @@ export class UserService {
         cognome: cognome,
         data_nascita: dataNascita,
         luogo_nascita: luogoNascita,
-        nazionalità: nazionalità,
+        nazionalita: nazionalita,
         codDisciplinaPrincipale: codDisciplinaPrincipale,
         codice_grado: codiceGrado,
         cellulare: cellulare,
