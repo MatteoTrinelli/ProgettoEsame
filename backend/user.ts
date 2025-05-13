@@ -41,7 +41,7 @@ authRouter.post('/api/login', (req: any, res: any) => {
 
 // REGISTRAZIONE
 authRouter.post('/api/register', (req: any, res: any) => {
-  console.log(req.body);
+  console.log(req.body.requestBody);
   const {
     nome,
     cognome,
@@ -55,7 +55,7 @@ authRouter.post('/api/register', (req: any, res: any) => {
     codice_ruolo,
     email,
     password,
-  } = req.body;
+  } = req.body.requestBody;
 
   if (
     !nome || !cognome || !data_nascita || !luogo_nascita || !nazionalita ||

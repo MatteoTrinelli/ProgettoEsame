@@ -18,12 +18,12 @@ export class RegistrazioneAllievoComponent {
   
     nome: new FormControl('a'),
     cognome: new FormControl('a'),
-    dob: new FormControl('2025-05-13'),
-    luogoNascita: new FormControl('Bra'),
+    data_nascita: new FormControl('2025-05-13'),
+    luogo_nascita: new FormControl('Bra'),
     nazionalita: new FormControl('Italia'),
-    disciplinaPrincipale : new FormControl(),
-    gradoDisciplina : new FormControl(),
-    cellulare: new FormControl('1234567890'),
+    codice_disciplina : new FormControl(),
+    codice_grado : new FormControl(),
+    numero_cellulare: new FormControl('1234567890'),
     mail: new FormControl('a@a.com'),
     password: new FormControl('123')
   });
@@ -32,8 +32,8 @@ export class RegistrazioneAllievoComponent {
 
     // if (this.registerForm.valid) {
           console.log(this.codice_ruolo)
-      const { nome,cognome,dob,luogoNascita,nazionalita, disciplinaPrincipale,gradoDisciplina,cellulare,mail,password }:string|undefined|null|any = this.registerForm.value;
-      this.userService.register(nome,cognome,dob,luogoNascita,nazionalita, disciplinaPrincipale,gradoDisciplina,cellulare,this.codice_ruolo,mail,password).subscribe({
+      const { nome,cognome,data_nascita,luogo_nascita,nazionalita, codice_disciplina,codice_grado,numero_cellulare,mail,password }:string|undefined|null|any = this.registerForm.value;
+      this.userService.register(nome,cognome,data_nascita,luogo_nascita,nazionalita, codice_disciplina,codice_grado,numero_cellulare,this.codice_ruolo,mail,password).subscribe({
         next: (res:any) => {
           console.log('Signin riuscito!');
           this.Router.navigate(["conferma"]);

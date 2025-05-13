@@ -39,12 +39,12 @@ export class UserService {
    register(
     nome: string,
     cognome: string,
-    dataNascita: string,
-    luogoNascita: string,
+    data_nascita: string,
+    luogo_nascita: string,
     nazionalita: string,
-    codDisciplinaPrincipale: string,
-    codiceGrado: string,
-    cellulare: string, // keep as string
+    codice_disciplina: string,
+    codice_grado: string,
+    numero_cellulare: string, // keep as string
     codice_ruolo: string,
     mail: string,
     password: string
@@ -56,12 +56,12 @@ export class UserService {
       const requestBody = {
         nome: nome,
         cognome: cognome,
-        data_nascita: dataNascita,
-        luogo_nascita: luogoNascita,
+        data_nascita: data_nascita,
+        luogo_nascita: luogo_nascita,
         nazionalita: nazionalita,
-        codDisciplinaPrincipale: codDisciplinaPrincipale,
-        codice_grado: codiceGrado,
-        cellulare: cellulare,
+        codice_disciplina: codice_disciplina,
+        codice_grado: codice_grado,
+        cellulare: numero_cellulare,
         codice_ruolo: codice_ruolo,
         mail: mail,
         password: hashedPassword,
