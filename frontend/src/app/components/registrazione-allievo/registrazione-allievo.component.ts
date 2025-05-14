@@ -16,16 +16,16 @@ export class RegistrazioneAllievoComponent {
 
   registerForm = new FormGroup({
   
-    nome: new FormControl('a'),
-    cognome: new FormControl('a'),
-    data_nascita: new FormControl('2025-05-13'),
-    luogo_nascita: new FormControl('Bra'),
-    nazionalita: new FormControl('Italia'),
+    nome: new FormControl(''),
+    cognome: new FormControl(''),
+    data_nascita: new FormControl(''),
+    luogo_nascita: new FormControl(''),
+    nazionalita: new FormControl(''),
     codice_disciplina : new FormControl(),
     codice_grado : new FormControl(),
-    numero_cellulare: new FormControl('1234567890'),
-    mail: new FormControl('a@a.com'),
-    password: new FormControl('123')
+    numero_cellulare: new FormControl(''),
+    mail: new FormControl(''),
+    password: new FormControl('')
   });
 
   onSubmit() {
