@@ -10,13 +10,17 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 export class RegistrazioneMaestroComponent {
 
 
-  registerForm = new FormGroup({
-    nome: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    cognome: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    dob: new FormControl(),
-    nazionalità: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    luogoNascita: new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z]+$')]),
-    disciplinaPrinciplae : new FormControl(),
-    gradoDisciplinaPrincipale : new FormControl(),
-  });
+registerForm = new FormGroup({
+  nome: new FormControl(''),
+  cognome: new FormControl(''),
+  mail: new FormControl(''),
+  numero_cellulare: new FormControl(''),
+  data_nascita: new FormControl(''),
+  nazionalita: new FormControl(''),
+  luogo_nascita: new FormControl(''),
+  codice_disciplina: new FormControl(''),
+  codice_grado: new FormControl(''),
+  password: new FormControl('')
+});
+
 }
