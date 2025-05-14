@@ -41,7 +41,7 @@ authRouter.post('/api/login', (req: any, res: any) => {
 
 // REGISTRAZIONE
 authRouter.post('/api/register', (req: any, res: any) => {
-  console.log(req.body.requestBody);
+  console.log(req.body);
   const {
     nome,
     cognome,
@@ -50,37 +50,36 @@ authRouter.post('/api/register', (req: any, res: any) => {
     nazionalita,
     codice_disciplina,
     codice_grado,
-    codice_palestra,
-    numero_cellulare,
+    cellulare,
     codice_ruolo,
-    email,
+    mail,
     password,
-  } = req.body.requestBody;
+  } = req.body;
 
-  if (
-    !nome || !cognome || !data_nascita || !luogo_nascita || !nazionalita ||
-    !codice_disciplina || !codice_grado || !numero_cellulare ||
-    !email || !password
-  ) {
-    return res.status(400).json({ message: 'Tutti i campi obbligatori devono essere compilati' });
-    console.log("si schianta qui")
-  }
-
+  //  if (
+  //    !nome || !cognome || !data_nascita || !luogo_nascita || !nazionalita ||
+  //    !codice_disciplina || !codice_grado || !numero_cellulare ||
+  //    !mail || !password
+  //  ) {
+  //     console.log("si schianta qui")
+  //    return res.status(400).json({ message: 'Tutti i campi obbligatori devono essere compilati' }); 
+  //  }
+  
   const passwordHash = SHA256(password).toString();
 
   const sql = `
     INSERT INTO utenti (
       nome, cognome, data_nascita, luogo_nascita, nazionalita,
-      codice_disciplina, codice_grado, codice_palestra,
+      codice_disciplina, codice_grado,
       numero_cellulare, codice_ruolo, mail, passwordHash
     )
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?,?,? , ?, ?, ?, ?, ?, ?, ?)
   `;
-
+console.log("arriva qui")
   const values = [
     nome, cognome, data_nascita, luogo_nascita, nazionalita,
-    codice_disciplina, codice_grado, codice_palestra || null,
-    numero_cellulare, codice_ruolo || null, email, passwordHash,
+    codice_disciplina, codice_grado,
+    cellulare, codice_ruolo, mail, passwordHash
   ];
 
   db.query(sql, values, (err: any) => {
