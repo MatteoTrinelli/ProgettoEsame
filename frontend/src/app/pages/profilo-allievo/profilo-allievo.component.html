@@ -1,0 +1,62 @@
+<div class="dashboard">
+  <div class="sidebar">
+    <strong>CN</strong>
+    <div class="nav-icon">
+      <img src="https://img.icons8.com/?size=100&id=7819&format=png&color=000000" />
+    </div>
+    <div class="nav-icon">
+      <img src="https://img.icons8.com/?size=100&id=l5Br0fxxE35Q&format=png&color=000000" />
+    </div>
+    <div class="nav-icon">
+      <img src="https://img.icons8.com/?size=100&id=364&format=png&color=000000" />
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div>
+        <h2>Il mio profilo</h2>
+        <small>Benvenuto nella tua area personale</small>
+      </div>
+      <div class="user-profile">
+        <img src="https://img.icons8.com/?size=100&id=7819&format=png&color=000000" alt="User" />
+        <span>{{ nomeCognome }}</span>
+      </div>
+    </div>
+
+    <div class="cards">
+      <div class="profile-card">
+        <h4>Il mio profilo</h4>
+        <img src="https://img.icons8.com/?size=100&id=7819&format=png&color=000000" alt="User" />
+        <h5>{{ nomeCognome }}</h5>
+        <p>{{ email }}</p>
+        <p>{{ citta }}</p>
+        <p>{{ palestra }}</p>
+
+        <button>Edit</button>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h4>Capacità bot</h4>
+        </div>
+        <ul>
+            @for(disciplina of data; track disciplina.id)
+            {
+          <li><span>{{ disciplina.nome }}</span><span class="badge green">{{ grado.nome }}</span></li>
+            }
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h4>Il mio record</h4>
+          <span class="badge pink"></span>
+        </div>
+        <ul>
+          <!-- record dinamici -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

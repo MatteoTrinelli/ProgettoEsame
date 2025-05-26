@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { LoginFormComponent } from './components/login-form/login-form.component';
+import { LoginFormComponent } from './pages/login-form/login-form.component';
 import { RegistrazioneComponent } from './pages/registrazione/registrazione.component';
 
 
