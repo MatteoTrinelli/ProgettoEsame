@@ -5,8 +5,8 @@ import SHA256 from 'crypto-js/sha256.js';
 
 const authRouter = express.Router();
 
-function generateToken(userId: number, email: string) {
-  return jwt.sign({ userId, email }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
+function generateToken(userId: number, email: string,nome:string,cognome:string,codRuolo:number) {
+  return jwt.sign({ userId, email,nome,cognome,codRuolo }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
 }
 
 // LOGIN
@@ -34,8 +34,8 @@ authRouter.post('/api/login', (req: any, res: any) => {
       return res.status(401).json({ message: 'Credenziali errate' });
     }
 
-    const token = generateToken(user.id, user.mail);
-    res.json({ token });
+    const token = generateToken(user.id, user.mail,user.nome,user.cognome,user.codRuolo);
+    res.status(200).json({ token:token });
   });
 });
 

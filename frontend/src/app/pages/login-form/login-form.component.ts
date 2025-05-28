@@ -14,6 +14,7 @@ import { UserService } from '../../services/auth/user.service';
 export class LoginFormComponent {
   currentYear: number = new Date().getFullYear();
   errorMsg:string='';
+  datiUtente:any=null;
 
   constructor(
     private userService: UserService,
@@ -33,11 +34,15 @@ export class LoginFormComponent {
       this.userService.login(email, password).subscribe({
         next: (res:any) => {
           this.userService.saveToken(res.token);
+          this.datiUtente=this.userService.decodeJWTPayload(res.token.codRuolo)
+          console.log(this.datiUtente)
           console.log('Login riuscito!');
           this.Router.navigate(["dashboard"]);
+          alert("Login riuscito!")
         },
         error: () => {
           this.errorMsg = 'Credenziali non valide';
+          alert(this.errorMsg);
         }
       });
     }
