@@ -15,7 +15,9 @@ export class RegistrazioneAllievoComponent {
   errorMsg: string = '';
   codice_ruolo: string = '2';
   nazionalita: { id: number; nazionalita: string }[] = [];
-  discipline: {id:number;nome:string}[]=[];
+  discipline: { id: number; nome: string }[] = [];
+  gradi: { id: number; nome: string }[] = [];
+  codDisciplina:number=0;
 
   registerForm = new FormGroup({
 
@@ -45,15 +47,40 @@ export class RegistrazioneAllievoComponent {
     this.userService.getDisciplina().subscribe({
       next: (res) => {
         this.discipline = res.discipline;
-         console.log('Discipline caricate:', this.discipline);       
+        console.log('Discipline caricate:', this.discipline);
       },
       error: () => {
         this.errorMsg = 'Errore nel caricamento delle nazionalità';
       },
     });
 
+     this.registerForm.get('codice_disciplina')?.valueChanges.subscribe(codDisciplina => {
+    console.log('Hai selezionato:', codDisciplina);
 
-  }
+    this.userService.getGrado(codDisciplina).subscribe({
+      next: (res) => {
+        this.gradi = res.gradi;
+        console.log('Gradi caricati:', this.gradi);
+      },
+      error: () => {
+        this.errorMsg = 'Errore nel caricamento dei gradi';
+      },
+    });
+  });
+}
+// onChangeDisciplina(){
+//   const codDisciplina=this.registerForm.value.codice_disciplina;
+//   console.log(codDisciplina)
+//       this.userService.getGrado(codDisciplina).subscribe({
+//       next: (res) => {
+//         this.discipline = res.discipline;
+//         console.log('Discipline caricate:', this.discipline);
+//       },
+//       error: () => {
+//         this.errorMsg = 'Errore nel caricamento delle nazionalità';
+//       },
+//     });
+//}
 
   onSubmit() {
 

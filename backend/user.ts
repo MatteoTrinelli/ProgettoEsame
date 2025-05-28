@@ -105,9 +105,11 @@ authRouter.get('/api/getDisciplina', async(req:any,res:any)=>{
 })
 
 authRouter.get('/api/getGrado', async(req:any,res:any)=>{
-const codDisciplina = Number(req.query.codDisciplina);
+const codDisciplina = (req.query.codDisciplina);
 
- const sql="SELECT * FROM gradi WHERE codDisciplina=?";
+console.log(codDisciplina)
+
+ const sql="SELECT id,nome FROM gradi WHERE codDisciplina=?";
   if (codDisciplina==null)
   {
     return res.status(404).json({message:"codDisciplina non può essere nullo"})
@@ -118,8 +120,8 @@ const codDisciplina = Number(req.query.codDisciplina);
       console.error('Errore nel server:', err)
       return res.status(500).json({message: "Errore server"})
     }
-    let vectDiscipline=results;
-    return res.status(200).json({discipline:vectDiscipline})
+    let vectGradi=results;
+    return res.status(200).json({gradi:vectGradi})
   })
 })
 

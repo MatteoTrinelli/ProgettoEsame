@@ -32,7 +32,10 @@ getDisciplina(): Observable<any> {
 }
 
 getGrado(codDisciplina:number): Observable<any> {
-  return this.http.get<any>(`${this.apiUrl}api/getDisciplina?${codDisciplina.toString()}`);
+  console.log(codDisciplina)
+   return this.http.get<any>(`${this.apiUrl}api/getGrado`, {
+    params: { codDisciplina: codDisciplina}
+  });
 }
 
   saveToken(token: string) {
