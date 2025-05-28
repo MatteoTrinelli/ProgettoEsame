@@ -59,11 +59,11 @@ getGrado(codDisciplina:number): Observable<any> {
     cognome: string,
     data_nascita: string,
     luogo_nascita: string,
-    nazionalita: string,
-    codice_disciplina: string,
-    codice_grado: string,
+    codNazionalita: number,
+    codice_disciplina: number,
+    codice_grado: number,
     numero_cellulare: string, // keep as string
-    codice_ruolo: string,
+    codice_ruolo: number,
     mail: string,
     password: string
   ):any {
@@ -76,7 +76,7 @@ getGrado(codDisciplina:number): Observable<any> {
         cognome: cognome,
         data_nascita: data_nascita,
         luogo_nascita: luogo_nascita,
-        nazionalita: nazionalita,
+        codNazionalita: codNazionalita,
         codice_disciplina: codice_disciplina,
         codice_grado: codice_grado,
         cellulare: numero_cellulare,

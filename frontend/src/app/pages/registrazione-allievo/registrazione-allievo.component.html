@@ -29,10 +29,11 @@
       </div>
       <div class="input-half">
         <label for="nazionalita">Nazionalità</label>
-        <select id="nazionalita" formControlName="nazionalita" required>
-          <option value="">Seleziona la tua nazionalità</option>
+        <select id="nazionalita" formControlName="codNazionalita" required>
+          <option value="" disabled>Seleziona la tua nazionalità</option>
           @for (n of nazionalita; track n.id) {
           <option [value]="n.id">{{ n.nazionalita }}</option>
+          <h1>{{n.id}}</h1>
           }
         </select>
       </div>
@@ -46,7 +47,7 @@
 
     <label for="martial-art">Discipline Marziali</label>
     <select id="martial-art" name="martial-art" formControlName="codice_disciplina" required>
-       <option value="">Seleziona una disciplina</option>
+       <option value="" disabled>Seleziona una disciplina</option>
       @for(d of discipline; track d.id)                                                       
       {
       <option [value]="d.id">{{d.nome}}</option>
@@ -57,7 +58,7 @@
 
     <label for="grade">Grado Imparato</label>
     <select id="grade" name="grade" formControlName="codice_grado"  required>
-       <option value="">Seleziona un grado</option>
+       <option value="" disabled>Seleziona un grado</option>
       @for(g of gradi; track g.id)
       {
          <option [value]="g.id">{{g.nome}}</option>

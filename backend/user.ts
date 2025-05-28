@@ -47,7 +47,7 @@ authRouter.post('/api/register', (req: any, res: any) => {
     cognome,
     data_nascita,
     luogo_nascita,
-    nazionalita,
+    codNazionalita,
     codice_disciplina,
     codice_grado,
     cellulare,
@@ -69,7 +69,7 @@ authRouter.post('/api/register', (req: any, res: any) => {
 
   const sql = `
     INSERT INTO utenti (
-      nome, cognome, data_nascita, luogo_nascita, codNazionalita,
+      nome, cognome, data_nascita, luogo_nascita, nazionalita,
       codDisciplina, codGrado,
       numero_cellulare, codRuolo, mail, passwordHash
     )
@@ -77,7 +77,7 @@ authRouter.post('/api/register', (req: any, res: any) => {
   `;
 console.log("arriva qui")
   const values = [
-    nome, cognome, data_nascita, luogo_nascita, nazionalita,
+    nome, cognome, data_nascita, luogo_nascita, codNazionalita,
     codice_disciplina, codice_grado,
     cellulare, codice_ruolo, mail, passwordHash
   ];
@@ -106,8 +106,6 @@ authRouter.get('/api/getDisciplina', async(req:any,res:any)=>{
 
 authRouter.get('/api/getGrado', async(req:any,res:any)=>{
 const codDisciplina = (req.query.codDisciplina);
-
-console.log(codDisciplina)
 
  const sql="SELECT id,nome FROM gradi WHERE codDisciplina=?";
   if (codDisciplina==null)
