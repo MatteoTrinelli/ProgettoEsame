@@ -14,12 +14,26 @@ export class UserService {
  apiUrl=API_URL;
 
 
+
+
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<any> {
     const hashedPassword=SHA256(password).toString();
     return this.http.post<any>(`${this.apiUrl}api/login`, { email, password:hashedPassword });
   }
+
+getNationality(): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}api/getNationality`);
+}
+
+getDisciplina(): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}api/getDisciplina`);
+}
+
+getGrado(codDisciplina:number): Observable<any> {
+  return this.http.get<any>(`${this.apiUrl}api/getDisciplina?${codDisciplina.toString()}`);
+}
 
   saveToken(token: string) {
     localStorage.setItem('token', token);
