@@ -1,20 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ProfiloComponent } from '../../components/profilo/profilo.component';
 import { PalestraProfiloComponent } from '../../components/palestra-profilo/palestra-profilo.component';
-import { ImpostazioniProfiloComponent } from "../../components/impostazioni-profilo/impostazioni-profilo.component";
-import { CommonModule } from '@angular/common';
-
+import { ImpostazioniProfiloComponent } from '../../components/impostazioni-profilo/impostazioni-profilo.component';
+import { UserService } from '../../services/auth/user.service';
 @Component({
   selector: 'app-dashboard',
-  imports: [ProfiloComponent, PalestraProfiloComponent, ImpostazioniProfiloComponent, CommonModule],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ProfiloComponent,
+    PalestraProfiloComponent,
+    ImpostazioniProfiloComponent
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
+
 export class DashboardComponent {
-  sezioneAttiva: 'profilo' | 'palestra' | 'impostazioni' = 'profilo';
+ 
+  constructor(private userService:UserService){}
+ 
+   nome:string="";
+  cognome:string="";
+  token: string | null="";
+  decodedToken:any=null;
+
+    ngOnInit(){
+      this.token=this.userService.getToken();
+      this.decodedToken=this.userService.decodeToken(this.token)
+      console.log(this.token)
+      if (this.token!=null)
+      {
+        this.cognome=this.decodedToken.cognome;
+        this.nome=this.decodedToken.nome
+      }
+    
+      
+    }
+  
+
+  sezioneAttiva = signal<'profilo' | 'palestra' | 'impostazioni'>('profilo');
 
   mostraSezione(sezione: 'profilo' | 'palestra' | 'impostazioni') {
-    this.sezioneAttiva = sezione;
+    this.sezioneAttiva.set(sezione);
   }
-}
 
+  
+  
+}

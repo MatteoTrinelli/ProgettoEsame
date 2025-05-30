@@ -33,12 +33,20 @@ export class LoginFormComponent {
       const { email, password }:string|undefined|null|any = this.loginForm.value;
       this.userService.login(email, password).subscribe({
         next: (res:any) => {
-          this.userService.saveToken(res.token);
-          this.datiUtente=this.userService.decodeJWTPayload(res.token.codRuolo)
-          console.log(this.datiUtente)
+          this.userService.saveToken(res.token)
+          this.datiUtente=this.userService.decodeToken(res.token.toString())
+         console.log(this.datiUtente)
           console.log('Login riuscito!');
-          this.Router.navigate(["dashboard"]);
+          if(this.datiUtente.codRuolo===1)
+          {
+            this.Router.navigate(["dashboard"]);
+            alert("Login riuscito!")
+          }
+          else if(this.datiUtente.codRuolo===2)
+          {
+          this.Router.navigate(["dashboardAllievo"]);
           alert("Login riuscito!")
+          }
         },
         error: () => {
           this.errorMsg = 'Credenziali non valide';
