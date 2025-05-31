@@ -3,6 +3,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { authRouter } from './user';
+import { profileRouter } from './profile';
+import { profile } from 'console';
 
 
 dotenv.config();
@@ -21,6 +23,7 @@ app.use(cors({
 app.use(express.json());
 
 app.use(authRouter);
+app.use(profileRouter);
 
 // Test route
 app.get('/', (req, res) => {

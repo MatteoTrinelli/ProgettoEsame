@@ -2,11 +2,10 @@ import express, { Request, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { db } from './database';
 import SHA256 from 'crypto-js/sha256.js';
-
 const authRouter = express.Router();
 
-function generateToken(userId: number, email: string,nome:string,cognome:string,codRuolo:number) {
-  return jwt.sign({ userId, email,nome,cognome,codRuolo }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
+function generateToken(userId: number, email: string,nome:string,cognome:string,codRuolo:number,codDisciplina:number,codGrado:number,citta:string) {
+  return jwt.sign({ userId, email,nome,cognome,codRuolo,codDisciplina,codGrado,citta }, process.env.JWT_SECRET as string, { expiresIn: '1h' });
 }
 
 // LOGIN
@@ -34,7 +33,7 @@ authRouter.post('/api/login', (req: any, res: any) => {
       return res.status(401).json({ message: 'Credenziali errate' });
     }
 
-    const token = generateToken(user.id, user.mail,user.nome,user.cognome,user.codRuolo);
+    const token = generateToken(user.id, user.mail,user.nome,user.cognome,user.codRuolo,user.codDisciplina,user.codGrado,user.luogo_nascita);
     res.status(200).json({ token:token });
   });
 });
@@ -91,6 +90,8 @@ console.log("arriva qui")
     res.status(201).json({ message: 'Utente registrato con successo' });
   });
 });
+
+
 authRouter.get('/api/getDisciplina', async(req:any,res:any)=>{
   const sql="SELECT * FROM discipline";
   db.query(sql,(err:any,results:any[])=>{
