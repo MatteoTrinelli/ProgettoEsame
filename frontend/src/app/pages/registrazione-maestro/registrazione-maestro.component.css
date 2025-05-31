@@ -112,3 +112,7 @@ a {
 a:hover {
   color: #ff0000;
 }
+.register-container{
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
