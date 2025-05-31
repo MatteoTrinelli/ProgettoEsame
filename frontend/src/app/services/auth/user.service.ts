@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { API_URL } from './../../../../../NON_COMMIT';
 import { SHA256 } from 'crypto-js';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -16,7 +17,7 @@ export class UserService {
 
 
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private Router:Router) {}
 
   login(email: string, password: string): Observable<any> {
     const hashedPassword=SHA256(password).toString();
@@ -48,6 +49,7 @@ getGrado(codDisciplina:number): Observable<any> {
 
   logout() {
     localStorage.removeItem('token');
+    this.Router.navigate([""]);
   }
 
    decodeToken(token:string | null):string | null {

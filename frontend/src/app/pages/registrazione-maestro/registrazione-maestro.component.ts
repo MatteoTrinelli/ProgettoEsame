@@ -67,19 +67,6 @@ export class RegistrazioneMaestroComponent {
     });
   });
 }
-// onChangeDisciplina(){
-//   const codDisciplina=this.registerForm.value.codice_disciplina;
-//   console.log(codDisciplina)
-//       this.userService.getGrado(codDisciplina).subscribe({
-//       next: (res) => {
-//         this.discipline = res.discipline;
-//         console.log('Discipline caricate:', this.discipline);
-//       },
-//       error: () => {
-//         this.errorMsg = 'Errore nel caricamento delle nazionalità';
-//       },
-//     });
-//}
 
   onSubmit() {
 
@@ -89,13 +76,17 @@ export class RegistrazioneMaestroComponent {
     console.log(codNazionalita)
     this.userService.register(nome, cognome, data_nascita, luogo_nascita, codNazionalita, codice_disciplina, codice_grado, numero_cellulare, this.codice_ruolo, mail, password).subscribe({
       next: (res: any) => {
-        console.log('Signin riuscito!');
-        this.Router.navigate(["conferma"]);
+        alert('Signin riuscito! Ora verrai portato alla pagina di accesso');
+        this.Router.navigate([""]);
       },
       error: () => {
         this.errorMsg = 'Credenziali non valide';
+        alert("signin non riuscito, " + this.errorMsg)
       }
     });
+
   }
-  // }
+
+
+
 }
